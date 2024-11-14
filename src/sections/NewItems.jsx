@@ -10,7 +10,8 @@ const NewItems = () => {
             <h2 className='text-3xl font-semibold font-montserrat text-primary-darker underline'>Novidades</h2>
         </div>
 
-        <div className='m-10 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:gap-6 gap-14'>
+        <div className='m-5 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 max-sm:grid-cols-2 
+                        sm:gap-x-4 sm:gap-y-10  gap-5'>
             {products.map((product) => (
                 <DressCard key={product.name} {...product} />
             ))}
