@@ -23,7 +23,7 @@ export default {
       },
       colors: {
         'primary-lighter': "#EBC059",
-        "primary-darker": "#4B330C",
+        'primary-darker': "#4B330C",
       },
       boxShadow: {
         '3xl': '0 10px 40px rgba(0, 0, 0, 0.1)'
