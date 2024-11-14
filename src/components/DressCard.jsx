@@ -3,10 +3,10 @@ import SizeOption from './SizeOption'
 
 const DressCard = ({imgURL, name, price, sizes, alt}) => {
   return (
-    <div className='transition ease-in-out delay-400 flex flex-1 flex-col w-full p-3 bg-white rounded-lg hover:drop-shadow-2xl  hover:scale-110	max-sm:w-full'>
+    <div className='flex flex-1 flex-col min-w-[250px] max-w-[250px] p-3 bg-white rounded-lg transition ease-in-out delay-400  hover:drop-shadow-2xl  hover:scale-110	max-sm:w-full'>
       <img 
         src={imgURL} alt={alt}
-        className='w-[280px] h-[350px] rounded'
+        className='w-[230px] h-[330px] min-w-[230px] max-w-[230px] place-self-center rounded'
       />
       <h3 className='text-xl mt-3 font-montserrat font-semibold text-primary-darker'>{name}</h3>
 
