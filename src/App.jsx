@@ -1,54 +1,53 @@
 import { useState } from "react";
 import { NewItems } from "./sections";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-const router = ({ cartItems, setCartItems }) =>
-  createBrowserRouter([
-    {
-      path: "",
-      element: (
-        <main className="relative">
-          <section className="padding">
-            <NewItems title="Homepage" />
-          </section>
-        </main>
-      ),
-    },
-    {
-      path: "/dress",
-      element: (
-        <main className="relative">
-          <section className="padding">
-            <NewItems title="Dress" />
-          </section>
-        </main>
-      ),
-    },
-    {
-      path: "/cart",
-      element: (
-        <main className="relative">
-          <section className="padding">
-            <NewItems title="Cart" />
-            <input
-              type="button"
-              className="w-10 h-10 "
-              onClick={() => {
-                const newCartItems = cartItems;
-                newCartItems.append(1);
-                setCartItems(newCartItems);
-              }}
-            />
-            text: {cartItems.reduce((acc, value) => acc + value, 0)}
-          </section>
-        </main>
-      ),
-    },
-  ]);
+import { BrowserRouter } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { Routes } from "react-router-dom";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
-  return <RouterProvider router={router({ cartItems, setCartItems })} />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path={""}
+          element={
+            <main className="relative">
+              <section className="padding">
+                <NewItems title="Homepage" />
+              </section>
+            </main>
+          }
+        />
+        <Route
+          path={"/dress"}
+          element={
+            <main className="relative">
+              <section className="padding">
+                <NewItems title="Dress" />
+              </section>
+            </main>
+          }
+        />
+        <Route
+          path={"/cart"}
+          element={
+            <main className="relative">
+              <section
+                className="padding"
+                onClick={() => {
+                  setCartItems("2");
+                }}
+              >
+                <NewItems title="Cart" />
+                text: {cartItems}
+              </section>
+            </main>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
