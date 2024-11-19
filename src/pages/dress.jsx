@@ -1,4 +1,5 @@
 // import CarouselDefault from "../components/Carousel"
+import { WhatsappLogo, InstagramLogo, CaretDown } from "@phosphor-icons/react";
 
 const Dress = () => {
   return (
@@ -8,6 +9,7 @@ const Dress = () => {
           home/
           <span className="text-xl font-semibold"> Vestido Fenda</span>
         </p>
+        {/* <CarouselDefault /> */}
       </div>
       <main className="mx-auto max-w-xl">
         <div>
@@ -45,6 +47,19 @@ const Dress = () => {
             <li>Casamento na praia</li>
             <li>Formatura</li>
           </ul>
+
+          <div className="flex items-center justify-between gap-11 mt-7 border border-black/40 p-4">
+            <span className="text-lg font-medium text-primary-darker">Especificações Técnicas</span>
+            <CaretDown />
+          </div>
+          <div className="flex items-center justify-between gap-11 border border-black/40 p-4">
+            <span className="text-lg font-medium text-primary-darker">Medidas da Modelo</span>
+            <CaretDown />
+          </div>
+          <div className="flex items-center justify-between gap-11 border border-black/40 p-4">
+            <span className="text-lg font-medium text-primary-darker">Cuidados!</span>
+            <CaretDown />
+          </div>
         </div>
 
         <div className="h-px bg-primary-darker/40 mt-7"></div>
@@ -52,7 +67,7 @@ const Dress = () => {
         <div className="mt-6">
           <h2 className="text-xl font-medium text-primary-darker">Frete</h2>
           <div className="flex items-center justify-center gap-11 mt-4">
-            <input type="number" placeholder="Digite seu CEP..." className="border border-black rounded-md w-[317px] h-12 placeholder:font-medium placeholder:text-gray-600 p-4"/>
+            <input type="number" placeholder="Digite seu CEP..." className="border border-black rounded-md w-[317px] h-12 placeholder:font-medium placeholder:text-gray-600 p-4" />
             <button className="text-white bg-primary-darker font-medium mt-4 h-12 w-[226px] rounded-md hover:bg-btn-hover">CALCULAR</button>
           </div>
         </div>
@@ -61,8 +76,9 @@ const Dress = () => {
 
         <div className="mt-5">
           <h2 className="text-xl font-medium text-primary-darker">Compartilhar</h2>
-          <div className="flex item center">
-
+          <div className="flex items-center gap-7 mt-3">
+            <a href="#"><InstagramLogo size={48} color="#584424"/></a>
+            <a href="#"><WhatsappLogo size={48} color="#584424"/></a>
           </div>
         </div>
 
