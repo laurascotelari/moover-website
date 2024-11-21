@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NewItems } from "./sections";
+import { Home } from "./pages/home/home.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
@@ -9,16 +10,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path={""}
-          element={
-            <main className="relative">
-              <section className="padding">
-                <NewItems title="Homepage" />
-              </section>
-            </main>
-          }
-        />
+        <Route path={""} element={<Home />} />
         <Route
           path={"/dress"}
           element={

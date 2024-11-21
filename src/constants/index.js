@@ -1,4 +1,4 @@
-import {dress1, dress2, dress3, dress4, dress5, dress6, dress7, dress8, dress9, dress10, dress11, dress12, dress13} from "../assets/dresses";
+import {dress1, dress2, dress3, dress4, dress5, dress6, dress7, dress8, dress9, dress10, dress11, dress12, dress13} from "../assets";
 
 export const products = [
     {
