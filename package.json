@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
@@ -27,5 +28,17 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.14",
     "vite": "^5.4.10"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laurascotelari/moover-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laurascotelari/moover-website/issues"
+  },
+  "homepage": "https://github.com/laurascotelari/moover-website#readme"
 }
