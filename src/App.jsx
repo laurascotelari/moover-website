@@ -3,6 +3,8 @@ import { NewItems } from "./sections";
 import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -13,9 +15,12 @@ const App = () => {
           path={""}
           element={
             <main className="relative">
+              <Header></Header>
               <section className="padding">
                 <NewItems title="Homepage" />
               </section>
+              <Footer></Footer>
+
             </main>
           }
         />
