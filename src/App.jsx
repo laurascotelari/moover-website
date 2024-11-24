@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NewItems } from "./sections";
-import { Home } from "./pages/home/home.jsx";
+import { Home } from "./pages/home/Home.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
