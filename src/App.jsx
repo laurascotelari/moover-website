@@ -4,6 +4,7 @@ import { Home } from "./pages/home/Home.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
+import { Cart } from "./pages/cart/cart.jsx";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -23,19 +24,7 @@ const App = () => {
         />
         <Route
           path={"/cart"}
-          element={
-            <main className="relative">
-              <section
-                className="padding"
-                onClick={() => {
-                  setCartItems("2");
-                }}
-              >
-                <NewItems title="Cart" />
-                text: {cartItems}
-              </section>
-            </main>
-          }
+          element={<Cart cartItems={cartItems} setCartItems={setCartItems} />}
         />
       </Routes>
     </BrowserRouter>
