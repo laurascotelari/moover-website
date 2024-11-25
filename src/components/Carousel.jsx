@@ -1,25 +1,59 @@
-import {  Carousel  } from "@material-tailwind/react";
- 
-const CarouselDefault = () => {
-  return (
-    <Carousel className="rounded-xl">
-          <img
-            src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-            alt="image 1"
-            className="h-full w-full object-cover"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-            alt="image 2"
-            className="h-full w-full object-cover"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-            alt="image 3"
-            className="h-full w-full object-cover"
-          />
-        </Carousel>
-  )
-}
+import { useState } from "react";
 
-export default CarouselDefault
+const Carrossel = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Avançar no carrossel
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  // Voltar no carrossel
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="relative w-full max-w-xl mx-auto">
+      {/* Imagem Principal */}
+      <div className="overflow-hidden rounded-lg">
+        <img
+          src={images[currentIndex]}
+          alt={`Slide ${currentIndex}`}
+          className="w-full h-auto object-cover transition-all duration-300"
+        />
+      </div>
+
+      {/* Botões de Navegação */}
+      <button
+        onClick={handlePrev}
+        className="absolute top-1/2 left-2 -translate-y-1/2 bg-gray-100 p-3 rounded-lg shadow-md hover:bg-gray-200 focus:outline-none"
+      >
+        ❮
+      </button>
+      <button
+        onClick={handleNext}
+        className="absolute top-1/2 right-2 -translate-y-1/2 bg-gray-100 p-3 rounded-lg shadow-md hover:bg-gray-200 focus:outline-none"
+      >
+        ❯
+      </button>
+
+      {/* Miniaturas */}
+      <div className="flex justify-center mt-4 gap-2">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Thumbnail ${index}`}
+            className={`w-16 h-16 object-cover rounded-lg cursor-pointer transition-all duration-200 ${
+              index === currentIndex ? "border-2 border-black scale-105" : "border border-gray-300"
+            }`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Carrossel;
