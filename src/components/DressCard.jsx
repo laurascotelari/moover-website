@@ -17,6 +17,7 @@ const DressCard = ({ imgURL, name, price, sizes, alt }) => {
                     transition ease-in-out delay-400
                     hover:drop-shadow-2xl hover:scale-110"
       onClick={() => navigate("/dress")}
+      tabindex={0}
     >
       <img
         src={imgURL}
@@ -40,7 +41,13 @@ const DressCard = ({ imgURL, name, price, sizes, alt }) => {
         ))}
       </div>
 
-      <p className="text-xl py-1 font-montserrat font-semibold">R${price}</p>
+      <p className="text-xl py-1 font-montserrat font-semibold">
+        R$
+        {price.toLocaleString("pt-BR", {
+          maximumFractionDigits: 2,
+          minimumFractionDigits: 2,
+        })}
+      </p>
     </div>
   );
 };

@@ -93,3 +93,30 @@ export const products = [
         alt: "Vestido de seda luxuoso, ideal para eventos formais e elegantes"
     }
 ];
+
+export const cartItemsConst = [
+    {
+        imgURL: dress1,
+        name: "Vestido Fenda",
+        price: 350.00,
+        size:  'G',
+        qtd: 1,
+        alt: "Vestido longo com fenda elegante, ideal para eventos formais"
+    },
+    {
+        imgURL: dress2,
+        name: "Vestido Bufante",
+        price: 290.00,
+        size: 'G',
+        qtd: 1,
+        alt: "Vestido com mangas bufantes e estilo romântico"
+    },
+    {
+        imgURL: dress3,
+        name: "Vestido Sem Alça",
+        price: 180.00,
+        size: 'G',
+        qtd: 1,
+        alt: "Vestido sem alças, perfeito para dias quentes de verão"
+    },
+];

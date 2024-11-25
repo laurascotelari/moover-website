@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  MagnifyingGlass,
-  ShoppingCart,
-  Moon,
-  Plus,
-  List,
-  X,
-} from "phosphor-react";
+import { MagnifyingGlass, ShoppingCart, Moon, List, X } from "phosphor-react";
 import { useNavigate, Link } from "react-router-dom";
 
 const Header = () => {

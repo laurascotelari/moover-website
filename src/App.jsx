@@ -5,9 +5,10 @@ import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import { Cart } from "./pages/cart/cart.jsx";
+import { cartItemsConst } from "./constants/index.js";
 
 const App = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(cartItemsConst);
   return (
     <BrowserRouter>
       <Routes>
