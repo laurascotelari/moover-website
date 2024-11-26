@@ -1,15 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 
 export default {
-<<<<<<< HEAD
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
     "./**/@material-tailwind/**/*.{html,js,ts,jsx,tsx,mdx}"
   ],
-=======
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
->>>>>>> pagina-vestido
   theme: {
     fontSize: {
       xs: ['12px', '16px'],
