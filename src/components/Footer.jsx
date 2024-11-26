@@ -2,7 +2,7 @@ import { InstagramLogo, FacebookLogo, WhatsappLogo, MapPin } from "phosphor-reac
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-yellow-400 px-8 py-10"> {/* Aumentado py para 10 */}
+    <footer className="bg-black text-primary-lighter px-8 py-10"> {/* Aumentado py para 10 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-sm">
         {/* Loja Física */}
         <div>
@@ -25,7 +25,7 @@ const Footer = () => {
               href="https://www.instagram.com/moover"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-yellow-500 transition"
+              className="hover:text-white transition"
             >
               <InstagramLogo size={35} weight="fill" />
             </a>
@@ -33,7 +33,7 @@ const Footer = () => {
               href="https://www.facebook.com/moover"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-yellow-500 transition"
+              className="hover:text-white transition"
             >
               <FacebookLogo size={35} weight="fill" />
             </a>
@@ -41,7 +41,7 @@ const Footer = () => {
               href="https://wa.me/0000000000/moover"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-yellow-500 transition"
+              className="hover:text-white transition"
             >
               <WhatsappLogo size={35} weight="fill" />
             </a>
@@ -56,11 +56,11 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Digite seu e-mail..."
-              className="flex-1 px-4 py-2 bg-black border border-yellow-400 text-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              className="flex-1 px-4 py-2 bg-black border border-primary-lighter text-primary-lighter rounded-md focus:outline-none focus:ring-2 focus:ring-white"
             />
             <button
               type="submit"
-              className="bg-yellow-400 text-black px-4 py-2 rounded-md font-bold hover:bg-yellow-500 transition"
+              className="bg-primary-lighter text-black px-4 py-2 rounded-md font-bold hover:bg-white transition"
             >
               Enviar
             </button>

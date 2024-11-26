@@ -7,10 +7,10 @@ const Header = () => {
   let navigate = useNavigate();
 
   return (
-    <header className="flex flex-col lg:flex-row justify-between items-center px-5 py-3 bg-black text-yellow-500 w-full">
+    <header className="flex flex-col lg:flex-row justify-between items-center px-5 py-3 bg-black text-primary-lighter w-full">
       <div className="w-full flex justify-between items-center lg:order-1 order-1">
         <button
-          className="lg:hidden text-yellow-500 text-xl hover:text-white transition-colors"
+          className="lg:hidden text-primary-lighter text-xl hover:text-white transition-colors"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <List size={24} weight="bold" />
@@ -27,30 +27,30 @@ const Header = () => {
       <nav className="hidden lg:flex lg:flex-row lg:space-x-16 lg:space-y-0  text-white mr-10">
         <a
           href="#formatura"
-          className={`hover:underline text-xl text-yellow-500`}
+          className={`hover:underline text-xl text-primary-lighter`}
         >
           Formatura
         </a>
         <a
           href="#debutante"
-          className={`hover:underline text-xl text-yellow-500`}
+          className={`hover:underline text-xl text-primary-lighter`}
         >
           Debutante
         </a>
         <a
           href="#casamento"
-          className={`hover:underline text-xl text-yellow-500`}
+          className={`hover:underline text-xl text-primary-lighter`}
         >
           Casamento
         </a>
         <a
           href="#eventos"
-          className={`hover:underline text-xl text-yellow-500`}
+          className={`hover:underline text-xl text-primary-lighter`}
         >
           Eventos
         </a>
       </nav>
-        <div className="flex space-x-4 text-xl text-yellow-500">
+        <div className="flex space-x-4 text-xl text-primary-lighter">
           <button className="hover:text-white transition-colors font-bold">A+</button>
           <button className="hover:text-white transition-colors">
             <Moon size={24} weight="bold" />
@@ -69,17 +69,17 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="lg:hidden mt-4 w-4/5 max-w-md mx-auto flex items-center border-2 border-yellow-500 rounded-lg order-2">
-        <MagnifyingGlass size={24} className="text-yellow-500 mx-3" />
+      <div className="lg:hidden mt-4 w-4/5 max-w-md mx-auto flex items-center border-2 border-primary-lighter rounded-lg order-2">
+        <MagnifyingGlass size={24} className="text-primary-lighter mx-3" />
         <input
           type="text"
           placeholder="Pesquisar..."
-          className="w-full px-4 py-2 bg-black text-yellow-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 border-hidden"
+          className="w-full px-4 py-2 bg-black text-primary-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-lighter border-hidden"
         />
       </div>
 
       <nav
-        className={`lg:hidden fixed top-0 left-0 w-full h-full bg-[#B08F43] flex flex-col items-center justify-start space-y-8 text-yellow-500 z-50 transition-transform duration-500 ease-in-out ${
+        className={`lg:hidden fixed top-0 left-0 w-full h-full bg-[#B08F43] flex flex-col items-center justify-start space-y-8 text-primary-lighter z-50 transition-transform duration-500 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-[-100%]"
         }`}
       >
