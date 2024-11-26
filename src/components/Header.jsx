@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { MagnifyingGlass, ShoppingCart, Moon, List, X } from "phosphor-react";
+import { MagnifyingGlass, ShoppingCart, CircleHalf, List, X } from "phosphor-react";
 import { useNavigate, Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isTextChanged, setIsTextChanged] = useState(false);
   let navigate = useNavigate();
 
   return (
-    <header className="flex flex-col lg:flex-row justify-between items-center px-5 py-3 bg-black text-primary-lighter w-full">
+    <header className="flex flex-col px-5 py-3 bg-black text-primary-lighter w-full">
       <div className="w-full flex justify-between items-center lg:order-1 order-1">
         <button
           className="lg:hidden text-primary-lighter text-xl hover:text-white transition-colors"
@@ -16,7 +18,7 @@ const Header = () => {
           <List size={24} weight="bold" />
         </button>
         
-        <Link to="/" className="flex justify-center items-center lg:justify-start flex-grow">
+        <Link to="/" className="">
           <img
             src="src/assets/img_logo_mais_claro.png"
             alt="Moover Logo"
@@ -24,36 +26,42 @@ const Header = () => {
           />
         </Link>
 
-      <nav className="hidden lg:flex lg:flex-row lg:space-x-16 lg:space-y-0  text-white mr-10">
-        <a
-          href="#formatura"
-          className={`hover:underline text-xl text-primary-lighter`}
-        >
-          Formatura
-        </a>
-        <a
-          href="#debutante"
-          className={`hover:underline text-xl text-primary-lighter`}
-        >
-          Debutante
-        </a>
-        <a
-          href="#casamento"
-          className={`hover:underline text-xl text-primary-lighter`}
-        >
-          Casamento
-        </a>
-        <a
-          href="#eventos"
-          className={`hover:underline text-xl text-primary-lighter`}
-        >
-          Eventos
-        </a>
-      </nav>
+        <nav className="hidden lg:flex lg:flex-row lg:space-x-16 lg:space-y-0 text-white mr-10">
+          <a
+            href="#formatura"
+            className={`hover:underline text-xl text-primary-lighter`}
+          >
+            Formatura
+          </a>
+          <a
+            href="#debutante"
+            className={`hover:underline text-xl text-primary-lighter`}
+          >
+            Debutante
+          </a>
+          <a
+            href="#casamento"
+            className={`hover:underline text-xl text-primary-lighter`}
+          >
+            Casamento
+          </a>
+          <a
+            href="#eventos"
+            className={`hover:underline text-xl text-primary-lighter`}
+          >
+            Eventos
+          </a>
+        </nav>
+
         <div className="flex space-x-4 text-xl text-primary-lighter">
-          <button className="hover:text-white transition-colors font-bold">A+</button>
+          <button 
+            className="hover:text-white transition-colors font-bold"
+            onClick={() => setIsTextChanged(!isTextChanged)}
+          >
+            {isTextChanged ? "A-" : "A+"}
+          </button>
           <button className="hover:text-white transition-colors">
-            <Moon size={24} weight="bold" />
+            <CircleHalf size={24} weight="fill" />
           </button>
           <button
             className="hover:text-white transition-colors"
@@ -63,20 +71,22 @@ const Header = () => {
           >
             <ShoppingCart size={24} weight="bold" />
           </button>
-          <button className="hidden lg:flex hover:text-white transition-colors">
-            <MagnifyingGlass size={24} weight="bold" />
+          <button 
+            className="hidden lg:flex hover:text-white transition-colors"
+            onClick={() => setIsSearchOpen(!isSearchOpen)}
+          >
+            {isSearchOpen ? <X size={24} weight="bold" /> : <MagnifyingGlass size={24} weight="bold" />}
           </button>
         </div>
       </div>
 
-      <div className="lg:hidden mt-4 w-4/5 max-w-md mx-auto flex items-center border-2 border-primary-lighter rounded-lg order-2">
-        <MagnifyingGlass size={24} className="text-primary-lighter mx-3" />
-        <input
-          type="text"
-          placeholder="Pesquisar..."
-          className="w-full px-4 py-2 bg-black text-primary-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-lighter border-hidden"
-        />
-      </div>
+
+<div className="lg:hidden mt-4 w-4/5 max-w-md mx-auto flex items-center border-2 border-primary-lighter rounded-lg order-2">
+ <MagnifyingGlass size={24} className="text-primary-lighter mx-3" /> 
+ <input type="text" 
+ placeholder="Pesquisar..." 
+ className="w-full px-4 py-2 bg-black text-primary-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-lighter border-hidden" /> 
+ </div>
 
       <nav
         className={`lg:hidden fixed top-0 left-0 w-full h-full bg-[#B08F43] flex flex-col items-center justify-start space-y-8 text-primary-lighter z-50 transition-transform duration-500 ease-in-out ${
@@ -115,7 +125,18 @@ const Header = () => {
           Eventos
         </a>
       </nav>
-
+            {isSearchOpen && (
+        <div className=" hidden lg:flex mt-4 w-4/5 max-w-md mx-auto flex items-center border-primary-lighter rounded-lg order-2">
+          <div className="w-full max-w-md mx-auto flex items-center border-2 border-primary-lighter rounded-lg">
+            <MagnifyingGlass size={24} className="text-primary-lighter mx-3" />
+            <input
+              type="text"
+              placeholder="Pesquisar..."
+              className="w-full px-4 py-2 bg-black text-primary-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-lighter border-hidden"
+            />
+          </div>
+        </div>
+      )}
 
     </header>
   );
