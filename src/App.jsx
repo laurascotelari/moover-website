@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import { Cart } from "./pages/cart/cart.jsx";
 import { cartItemsConst } from "./constants/index.js";
+import { Dress } from './pages/dress.jsx'
 
 const App = () => {
   const [cartItems, setCartItems] = useState(cartItemsConst);
@@ -16,11 +17,7 @@ const App = () => {
         <Route
           path={"/dress"}
           element={
-            <main className="relative">
-              <section className="padding">
-                <NewItems title="Dress" />
-              </section>
-            </main>
+            <Dress />
           }
         />
         <Route
