@@ -11,7 +11,7 @@ import dress10 from './dresses/img_vestido4.png'
 import dress11 from './dresses/img_vestido5.png'
 import dress12 from './dresses/img_vestido6.png'
 import dress13 from './dresses/img_vestido7.png'
-import homeImage from './img_home_sem_txt_v2 1.png'
+import homeImage from './img_home_com_txt_v4.png'
 
 
 
