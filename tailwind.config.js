@@ -19,6 +19,14 @@ export default {
       '8xl': ['96px', '106px']
     },
     extend: {
+      backgroundColor: {
+        'color-theme1': '#FFFFFF',
+        'color-theme2': '#000000'
+      },
+      textColor:{
+        'color-theme1': '#000000',
+        'color-theme2': '#FFFFFF'
+      },
       fontFamily: {
         lexend: ['Lexend', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif']
@@ -39,5 +47,16 @@ export default {
       }
     }
   },
+  safelist:[
+    {
+      pattern: /text-color-(theme1|theme2)/
+    },
+    {
+      pattern: /bg-color-(theme1|theme2)/
+    },
+    {
+      pattern: /text-color-(theme1|theme2)/
+    }
+  ],
   plugins: []
 }

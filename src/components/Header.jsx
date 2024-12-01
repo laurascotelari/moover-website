@@ -1,18 +1,35 @@
 import { useState } from "react";
 import { MagnifyingGlass, ShoppingCart, CircleHalf, List, X } from "phosphor-react";
 import { useNavigate, Link } from "react-router-dom";
+import { useTheme } from "../contexts/ThemeContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isTextChanged, setIsTextChanged] = useState(false);
+
   let navigate = useNavigate();
 
+  //classes referentes ao tema padrao e o tema de alto contraste
+  const {toggleTheme, theme}  = useTheme();
+
+  //tema padrao
+  let textColor = "text-primary-lighter";
+  let backgroundColor = "bg-black";
+  let iconColor = "#EBC059";
+
+  //cores do tema em alto contraste
+  if(theme == 'theme2'){
+    textColor = "text-black";
+    backgroundColor = "bg-white";
+    iconColor = "black";
+  }
+
   return (
-    <header className="flex flex-col px-5 py-3 bg-black text-primary-lighter w-full">
+    <header className={`flex flex-col px-5 py-3 ${backgroundColor} w-full ${textColor}`}>
       <div className="w-full flex justify-between items-center lg:order-1 order-1">
         <button
-          className="lg:hidden text-primary-lighter text-xl hover:text-white transition-colors"
+          className={`lg:hidden text-xl hover:text-white transition-colors ${textColor}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <List size={24} weight="bold" />
@@ -20,7 +37,7 @@ const Header = () => {
         
         <Link to="/" className="">
           <img
-            src="src/assets/img_logo_mais_claro.png"
+            src={theme == 'theme1' ? "src/assets/img_logo_mais_claro.png" : "src/assets/img_logo_preto.png"}
             alt="Moover Logo"
             className="h-10 mx-auto"
           />
@@ -29,39 +46,39 @@ const Header = () => {
         <nav className="hidden lg:flex lg:flex-row lg:space-x-16 lg:space-y-0 text-white mr-10">
           <a
             href="#formatura"
-            className={`hover:underline text-xl text-primary-lighter`}
+            className={`hover:underline text-xl ${textColor}`}
           >
             Formatura
           </a>
           <a
             href="#debutante"
-            className={`hover:underline text-xl text-primary-lighter`}
+            className={`hover:underline text-xl ${textColor}`}
           >
             Debutante
           </a>
           <a
             href="#casamento"
-            className={`hover:underline text-xl text-primary-lighter`}
+            className={`hover:underline text-xl ${textColor}`}
           >
             Casamento
           </a>
           <a
             href="#eventos"
-            className={`hover:underline text-xl text-primary-lighter`}
+            className={`hover:underline text-xl ${textColor}`}
           >
             Eventos
           </a>
         </nav>
 
-        <div className="flex space-x-4 text-xl text-primary-lighter">
+        <div className={`flex space-x-4 text-xl ${textColor}`}>
           <button 
             className="hover:text-white transition-colors font-bold"
             onClick={() => setIsTextChanged(!isTextChanged)}
           >
             {isTextChanged ? "A-" : "A+"}
           </button>
-          <button className="hover:text-white transition-colors">
-            <CircleHalf size={24} weight="fill" />
+          <button className="hover:text-white transition-colors" onClick={() => {(theme == 'theme1' ? toggleTheme('theme2') : toggleTheme('theme1'))}}>
+            <CircleHalf size={24} weight="fill" color={iconColor}/>
           </button>
           <button
             className="hover:text-white transition-colors"
@@ -69,20 +86,20 @@ const Header = () => {
               navigate("/cart");
             }}
           >
-            <ShoppingCart size={24} weight="bold" />
+            <ShoppingCart size={24} weight="bold" color={iconColor}/>
           </button>
           <button 
             className="hidden lg:flex hover:text-white transition-colors"
             onClick={() => setIsSearchOpen(!isSearchOpen)}
           >
-            {isSearchOpen ? <X size={24} weight="bold" /> : <MagnifyingGlass size={24} weight="bold" />}
+            {isSearchOpen ? <X size={24} weight="bold" color={iconColor} /> : <MagnifyingGlass size={24} weight="bold" color={iconColor}/>}
           </button>
         </div>
       </div>
 
 
 <div className="lg:hidden mt-4 w-4/5 max-w-md mx-auto flex items-center border-2 border-primary-lighter rounded-lg order-2">
- <MagnifyingGlass size={24} className="text-primary-lighter mx-3" /> 
+ <MagnifyingGlass size={24} className="text-primary-lighter mx-3" color={iconColor} /> 
  <input type="text" 
  placeholder="Pesquisar..." 
  className="w-full px-4 py-2 bg-black text-primary-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-lighter border-hidden" /> 
@@ -128,7 +145,7 @@ const Header = () => {
             {isSearchOpen && (
         <div className=" hidden lg:flex mt-4 w-4/5 max-w-md mx-auto flex items-center border-primary-lighter rounded-lg order-2">
           <div className="w-full max-w-md mx-auto flex items-center border-2 border-primary-lighter rounded-lg">
-            <MagnifyingGlass size={24} className="text-primary-lighter mx-3" />
+            <MagnifyingGlass size={24} className="text-primary-lighter mx-3" color={iconColor} />
             <input
               type="text"
               placeholder="Pesquisar..."

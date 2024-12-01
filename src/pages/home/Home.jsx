@@ -4,6 +4,8 @@ import { HomeSection } from "../../sections";
 import { Carousel, IconButton } from "@material-tailwind/react";
 import { homeImage } from "../../assets";
 import { CaretRight, CaretLeft } from "phosphor-react";
+import { useTheme } from "../../contexts/ThemeContext";
+
 
 const placeholderArray = [
   { imgSrc: homeImage, alt: "placeholder" },
@@ -22,7 +24,7 @@ const HomeCarousel = ({ imgArray }) => (
         color="#584424"
         size="lg"
         onClick={handlePrev}
-        className="text-primary-darker !absolute top-2/4 left-4 -translate-y-2/4"
+        className={`text-primary-lighter !absolute top-2/4 left-4 -translate-y-2/4`}
       >
         <CaretLeft size={32} />
       </IconButton>
@@ -46,13 +48,23 @@ const HomeCarousel = ({ imgArray }) => (
 );
 
 export const Home = () => {
+  //classes referentes ao tema padrao e o tema de alto contraste
+  const {toggleTheme, theme}  = useTheme();
+
+  //tema padrao
+  let bgColor = "bg-white";
+
+  //cores do tema em alto contraste
+  if(theme == 'theme2'){
+    bgColor = "bg-black";
+  }
   return (
-    <div className="w-full">
-      <Header />
-      <HomeCarousel imgArray={placeholderArray} />
-      <HomeSection title={"Novidades"} />
-      <HomeSection title={"Vestidos de Festa"} />
-      <Footer />
+    <div className={`w-full ${bgColor}`}>
+        <Header />
+        <HomeCarousel imgArray={placeholderArray} />
+        <HomeSection title={"Novidades"} />
+        <HomeSection title={"Vestidos de Festa"} />
+        <Footer />
     </div>
   );
 };

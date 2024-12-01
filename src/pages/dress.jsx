@@ -13,8 +13,32 @@ import image2 from "../assets/dresses/img_vestido2.png";
 import image3 from "../assets/dresses/img_vestido3.png";
 import image4 from "../assets/dresses/img_vestido4.png";
 import image5 from "../assets/dresses/img_vestido5.png";
+import { useTheme } from "../contexts/ThemeContext";
 
 const Dress = () => {
+  //classes referentes ao tema padrao e o tema de alto contraste
+  const {toggleTheme, theme}  = useTheme();
+
+  //tema padrao
+  let textColor = "text-primary-darker";
+  let borderColor = "border-primary-darker";
+  let secundaryTextColor = "text-black";
+  let tertiaryTextColor = "text-white";
+  let bgColor = "bg-white";
+  let secundaryBgColor = "bg-primary-darker"; 
+  let iconColor = "#584424";
+
+  //cores do tema em alto contraste
+  if(theme == 'theme2'){
+    textColor = "text-white";
+    secundaryTextColor = "text-white";
+    tertiaryTextColor = "text-black";
+    borderColor = "border-white";
+    bgColor = "bg-black";
+    secundaryBgColor = "bg-white"; 
+    iconColor = "white";
+  }
+
   const images = [image1, image2, image3, image4, image5];
 
   const [count, setCount] = useState(1);
@@ -68,11 +92,11 @@ const Dress = () => {
   };
 
   return (
-    <div>
+    <div className={`${bgColor}`}>
       <Header />
       <div className="min-h-screen lg:grid lg:grid-cols-2 mt-20 font-montserrat px-4 md:px-8">
         <div className="mx-auto max-w-xl sm:max-w-full">
-          <p className="text-sm text-primary-darker">
+          <p className={`text-sm ${textColor}`}>
             home/
             <span className="text-md lg:text-xl font-semibold">
               {" "}
@@ -85,13 +109,13 @@ const Dress = () => {
         </div>
         <main className="mx-auto max-w-xl">
           <div className="mt-5">
-            <p className="text-sm">6059_309</p>
-            <h1 className="text-lg lg:text-2xl font-semibold text-primary-darker mt-1">
+            <p className={`text-sm ${textColor}`}>6059_309</p>
+            <h1 className={`text-lg lg:text-2xl font-semibold ${textColor} mt-1`}>
               Vestido De Festa Longo com Fenda Lateral e Manga Longa{" "}
             </h1>
-            <h2 className="text-lg lg:text-2xl font-medium text-primary-darker mt-6 lg:mt-8 ">
+            <h2 className={`text-lg lg:text-2xl font-medium ${textColor} mt-6 lg:mt-8`}>
               R$ 350,00
-              <span className="text-sm lg:text-base font-normal text-black ml-2">
+              <span className={`text-sm lg:text-base font-normal ${secundaryTextColor} ml-2`}>
                 10x de 35,00 sem juros
               </span>
             </h2>
@@ -99,7 +123,7 @@ const Dress = () => {
             <form action="" onSubmit={(e) => handleFormSubmit(e)}>
               <div className="space-y-6 mt-6">
                 <div>
-                  <h2 className="text-lg lg:text-xl font-medium text-primary-darker mb-2">
+                  <h2 className={`text-lg lg:text-xl font-medium ${textColor} mb-2`}>
                     Cor
                   </h2>
                   <div className="flex items-center space-x-4 mt-2">
@@ -145,7 +169,7 @@ const Dress = () => {
 
                 <div>
                   <div className="flex items-center">
-                    <h2 className="text-lg lg:text-xl font-medium text-primary-darker mb-2">
+                    <h2 className={`text-lg lg:text-xl font-medium ${textColor} mb-2`}>
                       Tamanho
                     </h2>
                   </div>
@@ -158,7 +182,7 @@ const Dress = () => {
                         value="P"
                         className="hidden peer"
                       />
-                      <span className="w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center bg-primary-darker border-2 border-gray-300 rounded-sm text-white text-sm lg:text-lg font-medium peer-checked:border-[3.5px] peer-checked:border-black">
+                      <span className={`w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${secundaryBgColor} border-2 border-gray-300 rounded-sm ${tertiaryTextColor} text-sm lg:text-lg font-medium peer-checked:border-[3.5px] peer-checked:border-black`}>
                         P
                       </span>
                     </label>
@@ -170,7 +194,7 @@ const Dress = () => {
                         value="M"
                         className="hidden peer"
                       />
-                      <span className="w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center bg-primary-darker border-2 border-gray-300 rounded-sm text-white text-sm lg:text-lg font-medium peer-checked:border-[3.5px] peer-checked:border-black">
+                      <span className={`w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${secundaryBgColor} border-2 border-gray-300 rounded-sm ${tertiaryTextColor} text-sm lg:text-lg font-medium peer-checked:border-[3.5px] peer-checked:border-black`}>
                         M
                       </span>
                     </label>
@@ -182,7 +206,7 @@ const Dress = () => {
                         value="G"
                         className="hidden peer"
                       />
-                      <span className="w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center bg-primary-darker border-2 border-gray-300 rounded-sm text-white text-sm lg:text-lg font-medium peer-checked:border-[3.5px] peer-checked:border-black">
+                      <span className={`w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${secundaryBgColor} border-2 border-gray-300 rounded-sm ${tertiaryTextColor} text-sm lg:text-lg font-medium peer-checked:border-[3.5px] peer-checked:border-black`}>
                         G
                       </span>
                     </label>
@@ -198,18 +222,18 @@ const Dress = () => {
               </div>
 
               <div className="mt-5">
-                <div className="flex items-center justify-between border border-black rounded-sm w-full h-10 px-1">
+                <div className={`flex items-center justify-between border ${borderColor} rounded-sm w-full h-10 px-1`}>
                   <button
                     type="button"
-                    className="text-xl w-10 h-10 flex items-center justify-center"
+                    className={`text-xl w-10 h-10 flex items-center justify-center ${secundaryTextColor}`}
                     onClick={() => setCount((prev) => Math.max(1, prev - 1))} // Evita números negativos
                   >
                     -
                   </button>
-                  <span className="text-xl mx-4">{count}</span>
+                  <span className={`text-xl mx-4 ${secundaryTextColor}`}>{count}</span>
                   <button
                     type="button"
-                    className="text-xl w-10 h-10 flex items-center justify-center"
+                    className={`text-xl w-10 h-10 flex items-center justify-center ${secundaryTextColor}`}
                     onClick={() => setCount((prev) => prev + 1)}
                   >
                     +
@@ -219,21 +243,21 @@ const Dress = () => {
 
               <button
                 type="submit"
-                className="text-md lg:text-lg text-white bg-primary-darker font-medium mt-4 h-10 w-full rounded-md hover:bg-btn-hover"
+                className={`text-md lg:text-lg ${tertiaryTextColor} ${secundaryBgColor} font-medium mt-4 h-10 w-full rounded-md hover:bg-btn-hover`}
               >
                 COMPRAR
               </button>
             </form>
           </div>
 
-          <div className="h-px bg-primary-darker/40 mt-7"></div>
+          <div className={`h-px ${secundaryBgColor}/40 mt-7`}></div>
 
           <div className="mt-6 text-md">
-            <h2 className="text-lg lg:text-xl font-semibold text-primary-darker">
+            <h2 className={`text-lg lg:text-xl font-semibold ${textColor}`}>
               DESCRIÇÃO
             </h2>
 
-            <p className="text-sm lg:text-lg text-justify text-black mt-5">
+            <p className={`text-sm lg:text-lg text-justify ${secundaryTextColor} mt-5`}>
               Vestido longo de festa, a epítome da elegância com o nosso
               deslumbrante modelo. Este vestido emana sensualidade onde quer que
               você vá, destacando-se com um sedutor decote tomara que caia,
@@ -244,10 +268,10 @@ const Dress = () => {
               deixar uma impressionante marca de sofisticação e beleza.
             </p>
 
-            <h3 className="text-md lg:text-lg font-semibold text-primary-darker mt-4">
+            <h3 className={`text-md lg:text-lg font-semibold ${bgColor} mt-4 ${secundaryTextColor}`}>
               Detalhes:
             </h3>
-            <ul className="list-disc ml-7 text-sm lg:text-lg">
+            <ul className={`list-disc ml-7 text-sm lg:text-lg ${secundaryTextColor}`}>
               <li>Drapeado na cintura</li>
               <li>Tomara que caia</li>
               <li>Barbatanas</li>
@@ -255,10 +279,10 @@ const Dress = () => {
               <li>Fenda</li>
             </ul>
 
-            <h3 className="text-md lg:text-lg font-semibold text-primary-darker mt-4">
+            <h3 className={`text-md lg:text-lg font-semibold ${textColor} mt-4`}>
               Ideal para ocasiões:
             </h3>
-            <ul className="list-disc ml-7 text-sm lg:text-lg">
+            <ul className={`list-disc ml-7 text-sm lg:text-lg ${secundaryTextColor}`}>
               <li>Casamento no campo</li>
               <li>Casamento de dia</li>
               <li>Casamento a noite</li>
@@ -269,11 +293,11 @@ const Dress = () => {
 
             <div className="mt-5">
               <div>
-                <details className="open:shadow-lg p-4 border border-black/40">
-                  <summary className="text-sm lg:text-base leading-6 text-primary-darker font-semibold select-none">
+                <details className={`open:shadow-lg p-4 border ${borderColor}/40`}>
+                  <summary className={`text-sm lg:text-base leading-6 ${textColor} font-semibold select-none`}>
                     Especificações Técnicas
                   </summary>
-                  <div className="mt-3 text-sm lg:text-md leading-6 space-y-2">
+                  <div className={`mt-3 text-sm lg:text-md leading-6 space-y-2 ${textColor}`}>
                     <p>
                       Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                       Maiores quia, asperiores veniam deleniti sed, incidunt
@@ -285,11 +309,11 @@ const Dress = () => {
               </div>
 
               <div>
-                <details className="open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-4 border border-black/40">
-                  <summary className="text-sm lg:text-base leading-6 text-primary-darker font-semibold select-none">
+                <details className={`open:${bgColor} open:ring-1 open:ring-black/5 open:shadow-lg p-4 border ${borderColor}/40`}>
+                  <summary className={`text-sm lg:text-base leading-6 ${textColor} font-semibold select-none`}>
                     Medidas da Modelo
                   </summary>
-                  <div className="mt-3 text-sm lg:text-md leading-6 space-y-2">
+                  <div className={`mt-3 text-sm lg:text-md leading-6 space-y-2 ${textColor}`}>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Fugit expedita debitis laborum error nostrum consectetur
@@ -301,11 +325,11 @@ const Dress = () => {
               </div>
 
               <div>
-                <details className="open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-4 border border-black/40">
-                  <summary className="text-sm lg:text-sm leading-6 text-primary-darker font-semibold select-none">
+                <details className={`open:${bgColor} open:ring-1 open:ring-black/5 open:shadow-lg p-4 border ${borderColor}/40`}>
+                  <summary className={`text-sm lg:text-sm leading-6 ${textColor} font-semibold select-none`}>
                     Cuidados!
                   </summary>
-                  <div className="mt-3 text-sm lg:text-md leading-6 space-y-2">
+                  <div className={`mt-3 text-sm lg:text-md leading-6 space-y-2 ${textColor}`}>
                     <p>Siga as instruções da etiqueta de lavagem. </p>
                     <p>
                       Seu vestido não deverá ser lavado ou seco em máquina.{" "}
@@ -321,10 +345,10 @@ const Dress = () => {
             </div>
           </div>
 
-          <div className="h-px bg-primary-darker/40 mt-7"></div>
+          <div className={`h-px ${secundaryBgColor}/40 mt-7`}></div>
 
           <div className="mt-6">
-            <h2 className="text-lg lg:text-xl font-medium text-primary-darker">
+            <h2 className={`text-lg lg:text-xl font-medium ${textColor}`}>
               Frete
             </h2>
             <div className="flex items-center justify-center gap-2 mt-4 lg:gap-11">
@@ -333,10 +357,10 @@ const Dress = () => {
                 placeholder="Digite seu CEP..."
                 value={cep}
                 onChange={handleCepChange}
-                className="text-sm lg:text-base border border-black rounded-sm w-[317px] h-12 placeholder:font-medium placeholder:text-gray-600 p-4"
+                className={`${bgColor} text-sm lg:text-base border ${borderColor} rounded-sm w-[317px] h-12 placeholder:font-medium placeholder:${secundaryTextColor}/400 p-4`}
               />
               <button
-                className="text-sm lg:text-base text-white bg-primary-darker font-medium h-12 w-[226px] rounded-md hover:bg-btn-hover"
+                className={`text-sm lg:text-base ${tertiaryTextColor} ${secundaryBgColor} font-medium h-12 w-[226px] rounded-md hover:bg-btn-hover`}
                 onClick={handleFreteSubmit}
               >
                 CALCULAR
@@ -362,18 +386,18 @@ const Dress = () => {
             )}
           </div>
 
-          <div className="h-px bg-primary-darker/40 mt-7"></div>
+          <div className={`h-px ${secundaryBgColor}/40 mt-7`}></div>
 
           <div className="mt-5">
-            <h2 className="text-xl font-medium text-primary-darker">
+            <h2 className={`text-xl font-medium ${textColor}`}>
               Compartilhar
             </h2>
             <div className="flex items-center gap-7 mt-3">
               <a href="#">
-                <InstagramLogo size={43} color="#584424" />
+                <InstagramLogo size={43} color={iconColor} />
               </a>
               <a href="#">
-                <WhatsappLogo size={43} color="#584424" />
+                <WhatsappLogo size={43} color={iconColor} />
               </a>
             </div>
           </div>

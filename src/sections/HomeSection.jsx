@@ -4,6 +4,7 @@ import { IconButton } from "@material-tailwind/react";
 import { CaretRight, CaretLeft } from "phosphor-react";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { useState } from "react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const HomeSection = ({ title }) => {
   const { width } = useWindowDimensions();
@@ -15,10 +16,21 @@ const HomeSection = ({ title }) => {
   const sampleArray = products.concat(products);
   const shownArray = sampleArray.slice(sliceIndex, sliceIndex + itemsPerRow);
 
+  //classes referentes ao tema padrao e o tema de alto contraste
+  const {toggleTheme, theme}  = useTheme();
+
+  //tema padrao
+  let textColor = "text-primary-darker";
+
+  //cores do tema em alto contraste
+  if(theme == 'theme2'){
+    textColor = "text-white";
+  }
+
   return (
     <section id="products" className="max-container p-8">
       <div className="flex flex-col justify-start gap-5">
-        <h2 className="text-3xl font-semibold font-montserrat text-primary-darker underline">
+        <h2 className={`text-3xl font-semibold font-montserrat ${textColor} underline`}>
           {title}
         </h2>
       </div>
@@ -27,7 +39,7 @@ const HomeSection = ({ title }) => {
           onClick={() => {
             setSliceIndex((products.length + sliceIndex - 1) % products.length);
           }}
-          className="text-primary-darker bg-transparent shadow-transparent hover:shadow-transparent"
+          className={`${textColor} bg-transparent shadow-transparent hover:shadow-transparent`}
         >
           <CaretLeft size={32} />
         </IconButton>
@@ -43,7 +55,7 @@ const HomeSection = ({ title }) => {
           onClick={() => {
             setSliceIndex((sliceIndex + 1) % products.length);
           }}
-          className="text-primary-darker bg-transparent shadow-transparent hover:shadow-transparent"
+          className={`${textColor} bg-transparent shadow-transparent hover:shadow-transparent`}
         >
           <CaretRight size={32} />
         </IconButton>

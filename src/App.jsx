@@ -6,20 +6,23 @@ import { Routes } from "react-router-dom";
 import { Cart } from "./pages/cart/cart.jsx";
 import { cartItemsConst } from "./constants/index.js";
 import Dress from "./pages/dress.jsx";
+import { ThemeProvider } from "./contexts/ThemeContext/index.jsx";
 
 const App = () => {
   const [cartItems, setCartItems] = useState(cartItemsConst);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={""} element={<Home />} />
-        <Route path={"/dress"} element={<Dress />} />
-        <Route
-          path={"/cart"}
-          element={<Cart cartItems={cartItems} setCartItems={setCartItems} />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path={""} element={<Home />} />
+          <Route path={"/dress"} element={<Dress />} />
+          <Route
+            path={"/cart"}
+            element={<Cart cartItems={cartItems} setCartItems={setCartItems} />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 
