@@ -11,15 +11,13 @@ import Footer from "../components/Footer";
 import image1 from "../assets/dresses/img_vestido1.png";
 import image2 from "../assets/dresses/img_vestido2.png";
 import image3 from "../assets/dresses/img_vestido3.png";
-import image4 from "../assets/dresses/img_vestido4.png";
-import image5 from "../assets/dresses/img_vestido5.png";
 import { useTheme } from "../contexts/ThemeContext";
 import { useFontSize } from "../contexts/FontSizeContext";
 
 const Dress = () => {
   //classes referentes ao tema padrao e o tema de alto contraste
-  const {toggleTheme, theme}  = useTheme();
-  const {toggleFontSize, fontSize} = useFontSize();
+  const { toggleTheme, theme } = useTheme();
+  const { toggleFontSize, fontSize } = useFontSize();
 
   //tema padrao
   let textColor = "text-primary-darker";
@@ -27,21 +25,21 @@ const Dress = () => {
   let secundaryTextColor = "text-black";
   let tertiaryTextColor = "text-white";
   let bgColor = "bg-white";
-  let secundaryBgColor = "bg-primary-darker"; 
+  let secundaryBgColor = "bg-primary-darker";
   let iconColor = "#584424";
 
   //cores do tema em alto contraste
-  if(theme == 'theme2'){
+  if (theme == 'theme2') {
     textColor = "text-white";
     secundaryTextColor = "text-white";
     tertiaryTextColor = "text-black";
     borderColor = "border-white";
     bgColor = "bg-black";
-    secundaryBgColor = "bg-white"; 
+    secundaryBgColor = "bg-white";
     iconColor = "white";
   }
 
-  const images = [image1, image2, image3, image4, image5];
+  const images = [image1, image2, image3];
 
   const [count, setCount] = useState(1);
   const [cep, setCep] = useState("");
@@ -130,35 +128,35 @@ const Dress = () => {
                     Cor
                   </h2>
                   <div className="flex items-center space-x-4 mt-2">
-                    <label htmlFor="pink" className="cursor-pointer">
+                    <label htmlFor="pink" className="cursor-pointer" tabIndex="0">
                       <input
                         type="radio"
                         id="pink"
                         name="color"
                         value="pink"
-                        className="appearance-none peer"
+                        className="hidden peer"
                       />
-                      <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-pink border-2 border-gray-300 rounded-sm inline-block peer-checked:border-black"></span>
+                      <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-pink flex items-center justify-center border-2 border-gray-300 rounded-sm font-medium peer-checked:border-[3.5px] peer-checked:border-black" />
                     </label>
-                    <label htmlFor="green" className="cursor-pointer">
+                    <label htmlFor="green" className="cursor-pointer" tabIndex="0">
                       <input
                         type="radio"
                         id="green"
                         name="color"
                         value="green"
-                        className="appearance-none peer"
+                        className="hidden peer"
                       />
-                      <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-green border-2 border-gray-300 rounded-sm inline-block peer-checked:border-black"></span>
+                      <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-green flex items-center justify-center border-2 border-gray-300 rounded-sm font-medium peer-checked:border-[3.5px] peer-checked:border-black"/>
                     </label>
-                    <label htmlFor="orange" className="cursor-pointer">
+                    <label htmlFor="orange" className="cursor-pointer" tabIndex="0">
                       <input
                         type="radio"
                         id="orange"
                         name="color"
                         value="orange"
-                        className="appearance-none peer"
+                        className="hidden peer"
                       />
-                      <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-orange border-2 border-gray-300 rounded-sm inline-block peer-checked:border-black"></span>
+                      <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-orange flex items-center justify-center border-2 border-gray-300 rounded-sm font-medium peer-checked:border-[3.5px] peer-checked:border-black"/>
                     </label>
                     <span
                       id="color-error"
@@ -177,7 +175,7 @@ const Dress = () => {
                     </h2>
                   </div>
                   <div className="flex space-x-4 mt-2">
-                    <label htmlFor="p" className="cursor-pointer">
+                    <label htmlFor="p" className="cursor-pointer" tabIndex="0">
                       <input
                         type="radio"
                         id="p"
@@ -189,7 +187,7 @@ const Dress = () => {
                         P
                       </span>
                     </label>
-                    <label htmlFor="m" className="cursor-pointer">
+                    <label htmlFor="m" className="cursor-pointer" tabIndex="0" >
                       <input
                         type="radio"
                         id="m"
@@ -201,7 +199,7 @@ const Dress = () => {
                         M
                       </span>
                     </label>
-                    <label htmlFor="g" className="cursor-pointer">
+                    <label htmlFor="g" className="cursor-pointer" tabIndex="0">
                       <input
                         type="radio"
                         id="g"
@@ -301,12 +299,11 @@ const Dress = () => {
                     Especificações Técnicas
                   </summary>
                   <div className={`mt-3 text-${fontSize}sm lg:text-${fontSize}md leading-6 space-y-2 ${textColor}`}>
-                    <p>
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Maiores quia, asperiores veniam deleniti sed, incidunt
-                      adipisci consectetur, eum unde facilis neque fugit optio
-                      magni a ratione est alias. Asperiores, ducimus?
-                    </p>
+                    <p>Composição: 89% Poliamida 11% Elastano</p>
+                    <p>É um tecido maleável e com bastante elasticidade, pois possui elastano em sua composição. Possui textura lisa, com um leve efeito escorregadio e fica perfeito em vestidos de festa ajustados ou fluidos.</p>
+                    <p>Forro: 100% Poliéster</p>
+                    <p>Bojo: Não</p>
+                    <p>Fecho: Zíper Invisível</p>
                   </div>
                 </details>
               </div>
@@ -317,12 +314,11 @@ const Dress = () => {
                     Medidas da Modelo
                   </summary>
                   <div className={`mt-3 text-${fontSize}sm lg:text-${fontSize}md leading-6 space-y-2 ${textColor}`}>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Fugit expedita debitis laborum error nostrum consectetur
-                      quaerat? Libero, reprehenderit iure. Quas corporis facilis
-                      nihil enim itaque maiores hic iusto suscipit asperiores?
-                    </p>
+                    <p>Modelo está vestindo tamanho 38 (P)</p>
+                    <p>Altura 1.77m</p>
+                    <p>Busto 82cm</p>
+                    <p>Cintura 63cm</p>
+                    <p>Quadril 90cm</p>
                   </div>
                 </details>
               </div>
@@ -395,7 +391,7 @@ const Dress = () => {
             <h2 className={`text-${fontSize}xl font-medium ${textColor}`}>
               Compartilhar
             </h2>
-            <div className="flex items-center gap-7 mt-3">
+            <div className="flex items-center gap-7 mt-3 mb-3">
               <a href="#">
                 <InstagramLogo size={43} color={iconColor} />
               </a>

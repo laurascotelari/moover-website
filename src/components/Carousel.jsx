@@ -19,7 +19,7 @@ const Carrossel = ({ images }) => {
       <div className="overflow-hidden rounded-lg">
         <img
           src={images[currentIndex]}
-          alt={`Slide ${currentIndex}`}
+          alt="Mulher usando um vestido longo rosa vibrante com decote em V e fenda na perna, segurando uma bolsa rosa. A imagem foi tirada em um jardim com fonte ao fundo em um dia ensolarado."
           className="w-full h-auto object-cover transition-all duration-300"
         />
       </div>
