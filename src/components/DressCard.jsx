@@ -2,11 +2,13 @@ import React from "react";
 import SizeOption from "./SizeOption";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../contexts/ThemeContext";
+import { useFontSize } from "../contexts/FontSizeContext";
 
 const DressCard = ({ imgURL, name, price, sizes, alt }) => {
   const navigate = useNavigate();
   //classes referentes ao tema padrao e o tema de alto contraste
   const {toggleTheme, theme}  = useTheme();
+  const {toggleFontSize, fontSize} = useFontSize();
 
   //tema padrao
   let textColor = "text-primary-darker";
@@ -38,7 +40,7 @@ const DressCard = ({ imgURL, name, price, sizes, alt }) => {
         alt={alt}
         className="w-full place-self-center rounded"
       />
-      <h3 className={`text-xl mt-3 font-montserrat font-semibold ${textColor}`}>
+      <h3 className={`text-${fontSize}xl mt-3 font-montserrat font-semibold ${textColor}`}>
         {name}
       </h3>
 
@@ -55,7 +57,7 @@ const DressCard = ({ imgURL, name, price, sizes, alt }) => {
         ))}
       </div>
 
-      <p className="text-xl py-1 font-montserrat font-semibold">
+      <p className={`text-${fontSize}xl py-1 font-montserrat font-semibold`}>
         R$
         {price.toLocaleString("pt-BR", {
           maximumFractionDigits: 2,

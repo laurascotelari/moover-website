@@ -3,11 +3,13 @@ import Footer from "../../components/Footer";
 import { IconButton, Button } from "@material-tailwind/react";
 import { Plus, Minus } from "phosphor-react";
 import { useTheme } from "../../contexts/ThemeContext";
+import { useFontSize } from "../../contexts/FontSizeContext";
 
 const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
   const item = cartItems[itemIndex];
   const qtd = item.qtd;
 
+  const {toggleFontSize, fontSize} = useFontSize();
   //classes referentes ao tema padrao e o tema de alto contraste
   const {toggleTheme, theme}  = useTheme();
 
@@ -25,7 +27,6 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
     iconColor = "white";
   }
 
-
   const remove = () => {
     const newCartItems = [...cartItems];
     setCartItems(newCartItems.toSpliced(itemIndex, 1));
@@ -38,13 +39,13 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
         className="h-40 md:h-28 rounded-lg basis-1/12 grow-0"
       />
       <div className={`basis-9/12 md:max-h-28 p-2 ${secundaryTextColor} flew flex-col`}>
-        <h3 className="text-lg ">{item.name}</h3>
+        <h3 className={`text-${fontSize}md`}>{item.name}</h3>
         <div className="flex flex-col md:flex-row gap-4 h-auto">
           <div>
-            <p className="text-sm text-nowrap font-normal pt-2">
+            <p className={`text-${fontSize}sm text-nowrap font-normal pt-2`}>
               Tamanho: {item.size}
             </p>
-            <p className="text-sm font-normal pt-2">
+            <p className={`text-${fontSize}sm font-normal pt-2`}>
               R${" "}
               {item.price.toLocaleString("pt-BR", {
                 maximumFractionDigits: 2,
@@ -73,7 +74,7 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
               >
                 <Minus />
               </IconButton>
-              <span className="font-normal text-lg text-center grow">
+              <span className={`font-normal text-${fontSize}lg text-center grow`}>
                 {item.qtd}
               </span>
               <IconButton
@@ -112,6 +113,7 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
 };
 
 const CartList = ({ cartItems, setCartItems }) => {
+  const {toggleFontSize, fontSize} = useFontSize();
   const {toggleTheme, theme}  = useTheme();
   //tema padrao
   let borderColor = "border-primary-darker";
@@ -128,10 +130,10 @@ const CartList = ({ cartItems, setCartItems }) => {
     .map((value) => value.qtd)
     .reduce((acc, val) => acc + val, 0);
   return (
-    <div className={`${bgColor} p-6 rounded-lg text-3xl font-semibold font-montserrat ${textColor} basis-3/5 h-fit`}>
+    <div className={`${bgColor} p-6 rounded-lg text-${fontSize}xl font-semibold font-montserrat ${textColor} basis-3/5 h-fit`}>
       <h1>
         Carrinho de compras{" "}
-        <span className="text-lg">
+        <span className={`text-${fontSize}lg`}>
           ({qtdItems} item{qtdItems === 1 ? "" : "s"})
         </span>
       </h1>
@@ -149,6 +151,7 @@ const CartList = ({ cartItems, setCartItems }) => {
 };
 
 const CartResume = ({ cartItems }) => {
+  const {toggleFontSize, fontSize} = useFontSize();
   const {toggleTheme, theme}  = useTheme();
   //tema padrao
   let borderColor = "border-primary-darker";
@@ -173,23 +176,23 @@ const CartResume = ({ cartItems }) => {
     .map((value) => value.qtd * value.price)
     .reduce((acc, val) => acc + val, 0);
   return (
-    <div className={`${bgColor} p-6 xl:py-6 xl:px-10 rounded-lg text-xl md:text-3xl lg:text-xl xl:text-3xl font-semibold font-montserrat ${textColor} basis-2/5 lg:${bgColor} h-fit`}>
+    <div className={`${bgColor} p-6 xl:py-6 xl:px-10 rounded-lg text-${fontSize}xl md:text-${fontSize}xl lg:text-${fontSize}xl xl:text-${fontSize}xxl font-semibold font-montserrat ${textColor} basis-2/5 lg:${bgColor} h-fit`}>
       <h2>Resumo da compra</h2>
       <hr className="border-black" />
 
       <div className="flex flex-row pt-16 justify-between">
-        <div className="text-lg md:text-xl lg:text-lg xl:text-xl">
+        <div className={`text-${fontSize}lg md:text-${fontSize}xl lg:text-${fontSize}lg xl:text-${fontSize}xl`}>
           Subtotal:
         </div>
         <div className={`${secundaryTextColor} font-normal`}>
-          <div className="text-lg md:text-xl lg:text-lg xl:text-xl text-end">
+          <div className={`text-${fontSize}lg md:text-${fontSize}xl lg:text-${fontSize}lg xl:text-${fontSize}xl text-end`}>
             R${" "}
             {subtotal.toLocaleString("pt-BR", {
               maximumFractionDigits: 2,
               minimumFractionDigits: 2,
             })}
           </div>
-          <div className="font-extralight text-xs md:text-base lg:text-xs xl:text-base">
+          <div className={`font-extralight text-${fontSize}xs md:text-${fontSize}base lg:text-${fontSize}xs xl:text-${fontSize}base`}>
             ou 10x de{" "}
             {(subtotal / 10).toLocaleString("pt-BR", {
               maximumFractionDigits: 2,
@@ -201,15 +204,15 @@ const CartResume = ({ cartItems }) => {
       </div>
 
       <div className="flex flex-row py-16 justify-between items-end">
-        <div className="text-lg md:text-xl lg:text-lg xl:text-xl">Frete:</div>
-        <div className={`font-extralight text-sm md:text-lg lg:text-sm xl:text-lg ${textColor}`}>
+        <div className={`text-${fontSize}lg md:text-${fontSize}xl lg:text-${fontSize}lg xl:text-${fontSize}xl`}>Frete:</div>
+        <div className={`font-extralight text-${fontSize}sm md:text-${fontSize}lg lg:text-${fontSize}sm xl:text-${fontSize}lg ${textColor}`}>
           Calculado na próxima etapa
         </div>
       </div>
 
       <Button
         fullWidth
-        className={`${tertiaryTextColor} ${secundaryBgColor} font-montserrat py-5 normal-case text-lg`}
+        className={`${tertiaryTextColor} ${secundaryBgColor} font-montserrat py-5 normal-case text-${fontSize}lg`}
       >
         Finalizar compra
       </Button>
@@ -225,6 +228,7 @@ const CartResume = ({ cartItems }) => {
 };
 
 export const Cart = ({ cartItems, setCartItems }) => {
+  const {toggleFontSize, fontSize} = useFontSize();
   const {toggleTheme, theme}  = useTheme();
   //tema padrao
   let bgColor = "bg-white";

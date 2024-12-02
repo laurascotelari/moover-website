@@ -2,12 +2,11 @@ import { useState } from "react";
 import { MagnifyingGlass, ShoppingCart, CircleHalf, List, X } from "phosphor-react";
 import { useNavigate, Link } from "react-router-dom";
 import { useTheme } from "../contexts/ThemeContext";
+import { useFontSize } from "../contexts/FontSizeContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isTextChanged, setIsTextChanged] = useState(false);
-
   let navigate = useNavigate();
 
   //classes referentes ao tema padrao e o tema de alto contraste
@@ -25,11 +24,13 @@ const Header = () => {
     iconColor = "black";
   }
 
+  const {toggleFontSize, fontSize} = useFontSize();
+
   return (
     <header className={`flex flex-col px-5 py-3 ${backgroundColor} w-full ${textColor}`}>
       <div className="w-full flex justify-between items-center lg:order-1 order-1">
         <button
-          className={`lg:hidden text-xl hover:text-white transition-colors ${textColor}`}
+          className={`lg:hidden text-${fontSize}xl hover:text-white transition-colors ${textColor}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <List size={24} weight="bold" />
@@ -43,28 +44,28 @@ const Header = () => {
           />
         </Link>
 
-        <nav className="hidden lg:flex lg:flex-row lg:space-x-16 lg:space-y-0 text-white mr-10">
+        <nav className={`hidden lg:flex lg:flex-row lg:space-x-16 lg:space-y-0 text-white mr-10 text-${fontSize}xl`}>
           <a
             href="#formatura"
-            className={`hover:underline text-xl ${textColor}`}
+            className={`hover:underline ${textColor}`}
           >
             Formatura
           </a>
           <a
             href="#debutante"
-            className={`hover:underline text-xl ${textColor}`}
+            className={`hover:underline ${textColor}`}
           >
             Debutante
           </a>
           <a
             href="#casamento"
-            className={`hover:underline text-xl ${textColor}`}
+            className={`hover:underline ${textColor}`}
           >
             Casamento
           </a>
           <a
             href="#eventos"
-            className={`hover:underline text-xl ${textColor}`}
+            className={`hover:underline ${textColor}`}
           >
             Eventos
           </a>
@@ -73,9 +74,15 @@ const Header = () => {
         <div className={`flex space-x-4 text-xl ${textColor}`}>
           <button 
             className="hover:text-white transition-colors font-bold"
-            onClick={() => setIsTextChanged(!isTextChanged)}
+            onClick={() => {toggleFontSize(parseInt(fontSize) + 1)}}
           >
-            {isTextChanged ? "A-" : "A+"}
+            A+
+          </button>
+          <button 
+            className="hover:text-white transition-colors font-bold"
+            onClick={() => {toggleFontSize(parseInt(fontSize) - 1)}}
+          >
+            A-
           </button>
           <button className="hover:text-white transition-colors" onClick={() => {(theme == 'theme1' ? toggleTheme('theme2') : toggleTheme('theme1'))}}>
             <CircleHalf size={24} weight="fill" color={iconColor}/>

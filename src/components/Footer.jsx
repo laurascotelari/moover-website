@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
+import { useFontSize } from "../contexts/FontSizeContext";
 import { InstagramLogo, FacebookLogo, WhatsappLogo, MapPin } from "phosphor-react"; 
 
 const Footer = () => {
@@ -39,11 +40,14 @@ const Footer = () => {
     setEmail("");
   };
 
+  //variaveis para controlar o tamanho da fonte
+  const {toggleFontSize, fontSize} = useFontSize();
+
   return (
     <footer className={`${bgColor} ${textColor} px-8 py-10`}>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-sm">
+      <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8 text-${fontSize}sm`}>
         <div>
-          <h3 className="text-lg font-bold mb-2">Loja Física</h3>
+          <h3 className={`text-${fontSize}lg font-bold mb-2`}>Loja Física</h3>
           <div className="flex items-start space-x-2">
             <MapPin size={45} weight="fill" className="mt-1" /> 
             <div>
@@ -54,7 +58,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h3 className="text-lg font-bold mb-2">Redes Sociais</h3>
+          <h3 className={`text-${fontSize}lg font-bold mb-2`}>Redes Sociais</h3>
           <p className="mb-3">Acompanhe a marca nas redes sociais!</p>
           <div className="flex space-x-4">
             <a
@@ -85,7 +89,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h3 className="text-lg font-bold mb-2">Newsletter</h3>
+          <h3 className={`text-${fontSize}lg font-bold mb-2`}>Newsletter</h3>
           <p className="mb-3">Cadastre-se e receba nossas novidades</p>
           <form className="flex flex-col" onSubmit={handleSubmit}>
             <input
@@ -95,7 +99,7 @@ const Footer = () => {
               onChange={(e) => setEmail(e.target.value)}
               className={`flex-1 px-4 py-2 ${bgColor} border ${borderColor} ${textColor} rounded-md focus:outline-none focus:ring-2 focus:ring-white`}
             />
-            {error && <span className="text-red-500 text-sm mt-2">{error}</span>}
+            {error && <span className={`text-red-500 text-${fontSize}sm mt-2`}>{error}</span>}
             <button
               type="submit"
               className={`${secundaryBgColor} ${secundaryTextColor} px-4 py-2 rounded-md font-bold hover:bg-white transition mt-4`}

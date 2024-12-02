@@ -5,6 +5,7 @@ import { CaretRight, CaretLeft } from "phosphor-react";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
+import { useFontSize } from "../contexts/FontSizeContext";
 
 const HomeSection = ({ title }) => {
   const { width } = useWindowDimensions();
@@ -27,10 +28,12 @@ const HomeSection = ({ title }) => {
     textColor = "text-white";
   }
 
+  const {toggleFontSize, fontSize} = useFontSize();
+
   return (
     <section id="products" className="max-container p-8">
       <div className="flex flex-col justify-start gap-5">
-        <h2 className={`text-3xl font-semibold font-montserrat ${textColor} underline`}>
+        <h2 className={`text-${fontSize}xxl font-semibold font-montserrat ${textColor} underline`}>
           {title}
         </h2>
       </div>
