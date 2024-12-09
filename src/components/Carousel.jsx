@@ -44,7 +44,7 @@ const Carrossel = ({ images }) => {
           <img
             key={index}
             src={image}
-            alt={`Thumbnail ${index}`}
+            alt="Mulher usando um vestido longo rosa vibrante com decote em V e fenda na perna, segurando uma bolsa rosa. A imagem foi tirada em um jardim com fonte ao fundo em um dia ensolarado."
             className={`w-16 h-16 object-cover rounded-lg cursor-pointer transition-all duration-200 ${
               index === currentIndex ? "border-2 border-black scale-105" : "border border-gray-300"
             }`}
