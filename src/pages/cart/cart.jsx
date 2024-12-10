@@ -9,9 +9,9 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
   const item = cartItems[itemIndex];
   const qtd = item.qtd;
 
-  const {toggleFontSize, fontSize} = useFontSize();
+  const { toggleFontSize, fontSize } = useFontSize();
   //classes referentes ao tema padrao e o tema de alto contraste
-  const {toggleTheme, theme}  = useTheme();
+  const { toggleTheme, theme } = useTheme();
 
   //tema padrao
   let borderColor = "border-primary-darker";
@@ -20,7 +20,7 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
   let iconColor = "#584424";
 
   //cores do tema em alto contraste
-  if(theme == 'theme2'){
+  if (theme == "theme2") {
     secundaryTextColor = "text-white";
     borderColor = "border-white";
     bgColor = "bg-gray-100/5";
@@ -32,13 +32,17 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
     setCartItems(newCartItems.toSpliced(itemIndex, 1));
   };
   return (
-    <div className={`${bgColor} w-full px-2 py-4 lg:pt-4 flex flex-row gap-4 mt-2 lg:m-4 rounded-lg h-fit`}>
+    <div
+      className={`${bgColor} w-full px-2 py-4 lg:pt-4 flex flex-row gap-4 mt-2 lg:m-4 rounded-lg h-fit`}
+    >
       <img
         src={item.imgURL}
         alt={item.alt}
         className="h-40 md:h-28 rounded-lg basis-1/12 grow-0"
       />
-      <div className={`basis-9/12 md:max-h-28 p-2 ${secundaryTextColor} flew flex-col`}>
+      <div
+        className={`basis-9/12 md:max-h-28 p-2 ${secundaryTextColor} flew flex-col`}
+      >
         <h3 className={`text-${fontSize}md`}>{item.name}</h3>
         <div className="flex flex-col md:flex-row gap-4 h-auto">
           <div>
@@ -53,8 +57,10 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
               })}
             </p>
           </div>
-          <div className="flex flew-row md:flex-none">
-            <div className={`shrink h-10 grow md:max-w-sm relative md:mt-4 border ${borderColor} flex items-center`}>
+          <div className="flex flex-col sm:flew-row md:flex-none">
+            <div
+              className={`shrink h-10 grow md:max-w-sm relative md:mt-4 border ${borderColor} flex items-center`}
+            >
               <IconButton
                 ripple={qtd > 1}
                 variant="text"
@@ -74,7 +80,9 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
               >
                 <Minus />
               </IconButton>
-              <span className={`font-normal text-${fontSize}lg text-center grow`}>
+              <span
+                className={`font-normal text-${fontSize}lg text-center grow`}
+              >
                 {item.qtd}
               </span>
               <IconButton
@@ -113,15 +121,15 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
 };
 
 const CartList = ({ cartItems, setCartItems }) => {
-  const {toggleFontSize, fontSize} = useFontSize();
-  const {toggleTheme, theme}  = useTheme();
+  const { toggleFontSize, fontSize } = useFontSize();
+  const { toggleTheme, theme } = useTheme();
   //tema padrao
   let borderColor = "border-primary-darker";
   let textColor = "text-primary-darker";
   let bgColor = "bg-gray-100";
 
   //cores do tema em alto contraste
-  if(theme == 'theme2'){
+  if (theme == "theme2") {
     textColor = "text-white";
     borderColor = "border-white";
     bgColor = "bg-black";
@@ -130,7 +138,9 @@ const CartList = ({ cartItems, setCartItems }) => {
     .map((value) => value.qtd)
     .reduce((acc, val) => acc + val, 0);
   return (
-    <div className={`${bgColor} p-6 rounded-lg text-${fontSize}xl font-semibold font-montserrat ${textColor} basis-3/5 h-fit`}>
+    <div
+      className={`${bgColor} p-6 rounded-lg text-${fontSize}xl font-semibold font-montserrat ${textColor} basis-3/5 h-fit`}
+    >
       <h1>
         Carrinho de compras{" "}
         <span className={`text-${fontSize}lg`}>
@@ -151,48 +161,55 @@ const CartList = ({ cartItems, setCartItems }) => {
 };
 
 const CartResume = ({ cartItems }) => {
-  const {toggleFontSize, fontSize} = useFontSize();
-  const {toggleTheme, theme}  = useTheme();
+  const { toggleFontSize, fontSize } = useFontSize();
+  const { toggleTheme, theme } = useTheme();
   //tema padrao
   let borderColor = "border-primary-darker";
   let textColor = "text-primary-darker";
   let secundaryTextColor = "text-black";
   let tertiaryTextColor = "text-white";
   let bgColor = "bg-gray-100";
-  let secundaryBgColor = "bg-primary-darker"; 
-
+  let secundaryBgColor = "bg-primary-darker";
 
   //cores do tema em alto contraste
-  if(theme == 'theme2'){
+  if (theme == "theme2") {
     textColor = "text-white";
     secundaryTextColor = "text-white";
     tertiaryTextColor = "text-black";
     borderColor = "border-white";
     bgColor = "bg-black";
-    secundaryBgColor = "bg-white"; 
+    secundaryBgColor = "bg-white";
   }
 
   const subtotal = cartItems
     .map((value) => value.qtd * value.price)
     .reduce((acc, val) => acc + val, 0);
   return (
-    <div className={`${bgColor} p-6 xl:py-6 xl:px-10 rounded-lg text-${fontSize}xl md:text-${fontSize}xl lg:text-${fontSize}xl xl:text-${fontSize}xxl font-semibold font-montserrat ${textColor} basis-2/5 lg:${bgColor} h-fit`}>
+    <div
+      className={`${bgColor} p-6 xl:py-6 xl:px-10 rounded-lg text-${fontSize}xl md:text-${fontSize}xl lg:text-${fontSize}xl xl:text-${fontSize}xxl font-semibold font-montserrat ${textColor} basis-2/5 lg:${bgColor} h-fit`}
+    >
       <h2>Resumo da compra</h2>
       <hr className="border-black" />
 
       <div className="flex flex-row pt-16 justify-between">
-        <div className={`text-${fontSize}lg md:text-${fontSize}xl lg:text-${fontSize}lg xl:text-${fontSize}xl`}>
+        <div
+          className={`text-${fontSize}lg md:text-${fontSize}xl lg:text-${fontSize}lg xl:text-${fontSize}xl`}
+        >
           Subtotal:
         </div>
         <div className={`${secundaryTextColor} font-normal`}>
-          <div className={`text-${fontSize}lg md:text-${fontSize}xl lg:text-${fontSize}lg xl:text-${fontSize}xl text-end`}>
+          <div
+            className={`text-${fontSize}lg md:text-${fontSize}xl lg:text-${fontSize}lg xl:text-${fontSize}xl text-end`}
+          >
             R${" "}
             {subtotal.toLocaleString("pt-BR", {
               maximumFractionDigits: 2,
               minimumFractionDigits: 2,
             })}
           </div>
-          <div className={`font-extralight text-${fontSize}xs md:text-${fontSize}base lg:text-${fontSize}xs xl:text-${fontSize}base`}>
+          <div
+            className={`font-extralight text-${fontSize}xs md:text-${fontSize}base lg:text-${fontSize}xs xl:text-${fontSize}base`}
+          >
             ou 10x de{" "}
             {(subtotal / 10).toLocaleString("pt-BR", {
               maximumFractionDigits: 2,
@@ -204,8 +221,14 @@ const CartResume = ({ cartItems }) => {
       </div>
 
       <div className="flex flex-row py-16 justify-between items-end">
-        <div className={`text-${fontSize}lg md:text-${fontSize}xl lg:text-${fontSize}lg xl:text-${fontSize}xl`}>Frete:</div>
-        <div className={`font-extralight text-${fontSize}sm md:text-${fontSize}lg lg:text-${fontSize}sm xl:text-${fontSize}lg ${textColor}`}>
+        <div
+          className={`text-${fontSize}lg md:text-${fontSize}xl lg:text-${fontSize}lg xl:text-${fontSize}xl`}
+        >
+          Frete:
+        </div>
+        <div
+          className={`font-extralight text-${fontSize}sm md:text-${fontSize}lg lg:text-${fontSize}sm xl:text-${fontSize}lg ${textColor}`}
+        >
           Calculado na próxima etapa
         </div>
       </div>
@@ -228,19 +251,21 @@ const CartResume = ({ cartItems }) => {
 };
 
 export const Cart = ({ cartItems, setCartItems }) => {
-  const {toggleFontSize, fontSize} = useFontSize();
-  const {toggleTheme, theme}  = useTheme();
+  const { toggleFontSize, fontSize } = useFontSize();
+  const { toggleTheme, theme } = useTheme();
   //tema padrao
   let bgColor = "bg-white";
 
   //cores do tema em alto contraste
-  if(theme == 'theme2'){
+  if (theme == "theme2") {
     bgColor = "bg-black";
   }
   return (
     <div className="w-full">
       <Header />
-      <div className={`${bgColor} sm:p-10 lg:p-20 flex flex-col lg:flex-row gap-24 min-h-screen max-h-fit`}>
+      <div
+        className={`${bgColor} sm:p-10 lg:p-20 flex flex-col lg:flex-row gap-24 min-h-screen max-h-fit`}
+      >
         <CartList cartItems={cartItems} setCartItems={setCartItems} />
         <CartResume cartItems={cartItems} />
       </div>

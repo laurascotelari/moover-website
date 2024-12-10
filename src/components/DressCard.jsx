@@ -7,15 +7,15 @@ import { useFontSize } from "../contexts/FontSizeContext";
 const DressCard = ({ imgURL, name, price, sizes, alt }) => {
   const navigate = useNavigate();
   //classes referentes ao tema padrao e o tema de alto contraste
-  const {toggleTheme, theme}  = useTheme();
-  const {toggleFontSize, fontSize} = useFontSize();
+  const { toggleTheme, theme } = useTheme();
+  const { toggleFontSize, fontSize } = useFontSize();
 
   //tema padrao
   let textColor = "text-primary-darker";
   let bgColor = "bg-white";
 
   //cores do tema em alto contraste
-  if(theme == 'theme2'){
+  if (theme == "theme2") {
     textColor = "text-white";
     bgColor = "bg-bleck";
   }
@@ -40,7 +40,9 @@ const DressCard = ({ imgURL, name, price, sizes, alt }) => {
         alt={alt}
         className="w-full place-self-center rounded"
       />
-      <h3 className={`text-${fontSize}xl mt-3 font-montserrat font-semibold ${textColor}`}>
+      <h3
+        className={`text-${fontSize}xl mt-3 font-montserrat font-semibold ${textColor}`}
+      >
         {name}
       </h3>
 

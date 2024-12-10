@@ -6,12 +6,23 @@ import { homeImage } from "../../assets";
 import { CaretRight, CaretLeft } from "phosphor-react";
 import { useTheme } from "../../contexts/ThemeContext";
 
-
 const placeholderArray = [
-  { imgSrc: homeImage, alt: "placeholder" },
-  { imgSrc: homeImage, alt: "placeholder" },
-  { imgSrc: homeImage, alt: "placeholder" },
-  { imgSrc: homeImage, alt: "placeholder" },
+  {
+    imgSrc: homeImage,
+    alt: "Banner promocional sobre novos vestidos da temporada de primavera e verão, à esquerda o titulo em letras negrito com o texto 'Primavera Verão', à direita a modelo feminina com brincos em formato de losango e vestido sem mangas, com estampa florida com petalas com um gradiente formado pelas cores rosa, laranja e branco, no fundo da imagem há um cenário de folhas com duas palmeiras com um leve desfoque",
+  },
+  {
+    imgSrc: homeImage,
+    alt: "Banner promocional sobre novos vestidos da temporada de primavera e verão, à esquerda o titulo em letras negrito com o texto 'Primavera Verão', à direita a modelo feminina com brincos em formato de losango e vestido sem mangas, com estampa florida com petalas com um gradiente formado pelas cores rosa, laranja e branco, no fundo da imagem há um cenário de folhas com duas palmeiras com um leve desfoque",
+  },
+  {
+    imgSrc: homeImage,
+    alt: "Banner promocional sobre novos vestidos da temporada de primavera e verão, à esquerda o titulo em letras negrito com o texto 'Primavera Verão', à direita a modelo feminina com brincos em formato de losango e vestido sem mangas, com estampa florida com petalas com um gradiente formado pelas cores rosa, laranja e branco, no fundo da imagem há um cenário de folhas com duas palmeiras com um leve desfoque",
+  },
+  {
+    imgSrc: homeImage,
+    alt: "Banner promocional sobre novos vestidos da temporada de primavera e verão, à esquerda o titulo em letras negrito com o texto 'Primavera Verão', à direita a modelo feminina com brincos em formato de losango e vestido sem mangas, com estampa florida com petalas com um gradiente formado pelas cores rosa, laranja e branco, no fundo da imagem há um cenário de folhas com duas palmeiras com um leve desfoque",
+  },
 ];
 
 const HomeCarousel = ({ imgArray }) => (
@@ -49,22 +60,22 @@ const HomeCarousel = ({ imgArray }) => (
 
 export const Home = () => {
   //classes referentes ao tema padrao e o tema de alto contraste
-  const {toggleTheme, theme}  = useTheme();
+  const { toggleTheme, theme } = useTheme();
 
   //tema padrao
   let bgColor = "bg-white";
 
   //cores do tema em alto contraste
-  if(theme == 'theme2'){
+  if (theme == "theme2") {
     bgColor = "bg-black";
   }
   return (
     <div className={`w-full ${bgColor}`}>
-        <Header />
-        <HomeCarousel imgArray={placeholderArray} />
-        <HomeSection title={"Novidades"} />
-        <HomeSection title={"Vestidos de Festa"} />
-        <Footer />
+      <Header />
+      <HomeCarousel imgArray={placeholderArray} />
+      <HomeSection title={"Novidades"} />
+      <HomeSection title={"Vestidos de Festa"} />
+      <Footer />
     </div>
   );
 };
