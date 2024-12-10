@@ -21,7 +21,7 @@ const DressCard = ({ imgURL, name, price, sizes, alt }) => {
   }
 
   return (
-    <div
+    <button
       className={`flex flex-1 flex-col
                     lg:w-[280px] lg:h-[550px]
                     md:w-[300px] md:h-[570px]
@@ -33,7 +33,6 @@ const DressCard = ({ imgURL, name, price, sizes, alt }) => {
                     transition ease-in-out delay-400
                     hover:drop-shadow-2xl hover:scale-110`}
       onClick={() => navigate("/dress")}
-      tabindex={0}
     >
       <img
         src={imgURL}
@@ -66,7 +65,7 @@ const DressCard = ({ imgURL, name, price, sizes, alt }) => {
           minimumFractionDigits: 2,
         })}
       </p>
-    </div>
+    </button>
   );
 };
 

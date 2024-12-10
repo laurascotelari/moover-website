@@ -18,22 +18,24 @@ const HomeSection = ({ title }) => {
   const shownArray = sampleArray.slice(sliceIndex, sliceIndex + itemsPerRow);
 
   //classes referentes ao tema padrao e o tema de alto contraste
-  const {toggleTheme, theme}  = useTheme();
+  const { toggleTheme, theme } = useTheme();
 
   //tema padrao
   let textColor = "text-primary-darker";
 
   //cores do tema em alto contraste
-  if(theme == 'theme2'){
+  if (theme == "theme2") {
     textColor = "text-white";
   }
 
-  const {toggleFontSize, fontSize} = useFontSize();
+  const { toggleFontSize, fontSize } = useFontSize();
 
   return (
     <section id="products" className="max-container p-8">
       <div className="flex flex-col justify-start gap-5">
-        <h2 className={`text-${fontSize}xxl font-semibold font-montserrat ${textColor} underline`}>
+        <h2
+          className={`text-${fontSize}xxl font-semibold font-montserrat ${textColor} underline`}
+        >
           {title}
         </h2>
       </div>
@@ -43,6 +45,7 @@ const HomeSection = ({ title }) => {
             setSliceIndex((products.length + sliceIndex - 1) % products.length);
           }}
           className={`${textColor} bg-transparent shadow-transparent hover:shadow-transparent`}
+          aria-label="Mostrar item anterior"
         >
           <CaretLeft size={32} />
         </IconButton>
@@ -59,6 +62,7 @@ const HomeSection = ({ title }) => {
             setSliceIndex((sliceIndex + 1) % products.length);
           }}
           className={`${textColor} bg-transparent shadow-transparent hover:shadow-transparent`}
+          aria-label="Mostrar próximo item"
         >
           <CaretRight size={32} />
         </IconButton>

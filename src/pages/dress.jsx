@@ -29,7 +29,7 @@ const Dress = () => {
   let iconColor = "#584424";
 
   //cores do tema em alto contraste
-  if (theme == 'theme2') {
+  if (theme == "theme2") {
     textColor = "text-white";
     secundaryTextColor = "text-white";
     tertiaryTextColor = "text-black";
@@ -45,7 +45,6 @@ const Dress = () => {
   const [cep, setCep] = useState("");
   const [isValid, setIsValid] = useState(true); // Para controle de validade
   const [showMessage, setShowMessage] = useState(false);
-
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -111,12 +110,18 @@ const Dress = () => {
         <main className="mx-auto max-w-xl">
           <div className="mt-5">
             <p className={`text-${fontSize}lg ${textColor}`}>6059_309</p>
-            <h1 className={`text-${fontSize}xl lg:text-${fontSize}xl font-semibold ${textColor} mt-1`}>
+            <h1
+              className={`text-${fontSize}xl lg:text-${fontSize}xl font-semibold ${textColor} mt-1`}
+            >
               Vestido De Festa Longo com Fenda Lateral e Manga Longa{" "}
             </h1>
-            <h2 className={`text-${fontSize}lg lg:text-${fontSize}xl font-medium ${textColor} mt-6 lg:mt-8`}>
+            <h2
+              className={`text-${fontSize}lg lg:text-${fontSize}xl font-medium ${textColor} mt-6 lg:mt-8`}
+            >
               R$ 350,00
-              <span className={`text-${fontSize}sm lg:text-${fontSize}base font-normal ${secundaryTextColor} ml-2`}>
+              <span
+                className={`text-${fontSize}sm lg:text-${fontSize}base font-normal ${secundaryTextColor} ml-2`}
+              >
                 10x de 35,00 sem juros
               </span>
             </h2>
@@ -124,11 +129,17 @@ const Dress = () => {
             <form action="" onSubmit={(e) => handleFormSubmit(e)}>
               <div className="space-y-6 mt-6">
                 <div>
-                  <h2 className={`text-${fontSize}lg lg:text-${fontSize}xl font-medium ${textColor} mb-2`}>
+                  <h2
+                    className={`text-${fontSize}lg lg:text-${fontSize}xl font-medium ${textColor} mb-2`}
+                  >
                     Cor
                   </h2>
                   <div className="flex items-center space-x-4 mt-2">
-                    <label htmlFor="pink" className="cursor-pointer" tabIndex="0">
+                    <label
+                      htmlFor="pink"
+                      className="cursor-pointer"
+                      tabIndex="0"
+                    >
                       <input
                         type="radio"
                         id="pink"
@@ -138,7 +149,11 @@ const Dress = () => {
                       />
                       <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-pink flex items-center justify-center border-2 border-gray-300 rounded-sm font-medium peer-checked:border-[3.5px] peer-checked:border-black" />
                     </label>
-                    <label htmlFor="green" className="cursor-pointer" tabIndex="0">
+                    <label
+                      htmlFor="green"
+                      className="cursor-pointer"
+                      tabIndex="0"
+                    >
                       <input
                         type="radio"
                         id="green"
@@ -146,9 +161,13 @@ const Dress = () => {
                         value="green"
                         className="hidden peer"
                       />
-                      <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-green flex items-center justify-center border-2 border-gray-300 rounded-sm font-medium peer-checked:border-[3.5px] peer-checked:border-black"/>
+                      <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-green flex items-center justify-center border-2 border-gray-300 rounded-sm font-medium peer-checked:border-[3.5px] peer-checked:border-black" />
                     </label>
-                    <label htmlFor="orange" className="cursor-pointer" tabIndex="0">
+                    <label
+                      htmlFor="orange"
+                      className="cursor-pointer"
+                      tabIndex="0"
+                    >
                       <input
                         type="radio"
                         id="orange"
@@ -156,7 +175,7 @@ const Dress = () => {
                         value="orange"
                         className="hidden peer"
                       />
-                      <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-orange flex items-center justify-center border-2 border-gray-300 rounded-sm font-medium peer-checked:border-[3.5px] peer-checked:border-black"/>
+                      <span className="w-8 h-8 lg:w-10 lg:h-10 bg-dress-orange flex items-center justify-center border-2 border-gray-300 rounded-sm font-medium peer-checked:border-[3.5px] peer-checked:border-black" />
                     </label>
                     <span
                       id="color-error"
@@ -170,7 +189,9 @@ const Dress = () => {
 
                 <div>
                   <div className="flex items-center">
-                    <h2 className={`text-${fontSize}lg lg:text-${fontSize}xl font-medium ${textColor} mb-2`}>
+                    <h2
+                      className={`text-${fontSize}lg lg:text-${fontSize}xl font-medium ${textColor} mb-2`}
+                    >
                       Tamanho
                     </h2>
                   </div>
@@ -183,11 +204,13 @@ const Dress = () => {
                         value="P"
                         className="hidden peer"
                       />
-                      <span className={`w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${secundaryBgColor} border-2 border-gray-300 rounded-sm ${tertiaryTextColor} text-${fontSize}sm lg:text-${fontSize}lg font-medium peer-checked:border-[3.5px] peer-checked:border-black`}>
+                      <span
+                        className={`w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${secundaryBgColor} border-2 border-gray-300 rounded-sm ${tertiaryTextColor} text-${fontSize}sm lg:text-${fontSize}lg font-medium peer-checked:border-[3.5px] peer-checked:border-black`}
+                      >
                         P
                       </span>
                     </label>
-                    <label htmlFor="m" className="cursor-pointer" tabIndex="0" >
+                    <label htmlFor="m" className="cursor-pointer" tabIndex="0">
                       <input
                         type="radio"
                         id="m"
@@ -195,7 +218,9 @@ const Dress = () => {
                         value="M"
                         className="hidden peer"
                       />
-                      <span className={`w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${secundaryBgColor} border-2 border-gray-300 rounded-sm ${tertiaryTextColor} text-${fontSize}sm lg:text-${fontSize}lg font-medium peer-checked:border-[3.5px] peer-checked:border-black`}>
+                      <span
+                        className={`w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${secundaryBgColor} border-2 border-gray-300 rounded-sm ${tertiaryTextColor} text-${fontSize}sm lg:text-${fontSize}lg font-medium peer-checked:border-[3.5px] peer-checked:border-black`}
+                      >
                         M
                       </span>
                     </label>
@@ -207,7 +232,9 @@ const Dress = () => {
                         value="G"
                         className="hidden peer"
                       />
-                      <span className={`w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${secundaryBgColor} border-2 border-gray-300 rounded-sm ${tertiaryTextColor} text-${fontSize}sm lg:text-${fontSize}lg font-medium peer-checked:border-[3.5px] peer-checked:border-black`}>
+                      <span
+                        className={`w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${secundaryBgColor} border-2 border-gray-300 rounded-sm ${tertiaryTextColor} text-${fontSize}sm lg:text-${fontSize}lg font-medium peer-checked:border-[3.5px] peer-checked:border-black`}
+                      >
                         G
                       </span>
                     </label>
@@ -223,19 +250,27 @@ const Dress = () => {
               </div>
 
               <div className="mt-5">
-                <div className={`flex items-center justify-between border ${borderColor} rounded-sm w-full h-10 px-1`}>
+                <div
+                  className={`flex items-center justify-between border ${borderColor} rounded-sm w-full h-10 px-1`}
+                >
                   <button
                     type="button"
                     className={`text-${fontSize}xl w-10 h-10 flex items-center justify-center ${secundaryTextColor}`}
                     onClick={() => setCount((prev) => Math.max(1, prev - 1))} // Evita números negativos
+                    aria-label="Subtrair uma unidade da quantidade do vestido"
                   >
                     -
                   </button>
-                  <span className={`text-${fontSize}xl mx-4 ${secundaryTextColor}`}>{count}</span>
+                  <span
+                    className={`text-${fontSize}xl mx-4 ${secundaryTextColor}`}
+                  >
+                    {count}
+                  </span>
                   <button
                     type="button"
                     className={`text-${fontSize}xl w-10 h-10 flex items-center justify-center ${secundaryTextColor}`}
                     onClick={() => setCount((prev) => prev + 1)}
+                    aria-label="Adicionar uma unidade da quantidade do vestido"
                   >
                     +
                   </button>
@@ -245,6 +280,7 @@ const Dress = () => {
               <button
                 type="submit"
                 className={`text-${fontSize}md lg:text-${fontSize}lg ${tertiaryTextColor} ${secundaryBgColor} font-medium mt-4 h-10 w-full rounded-md hover:bg-btn-hover`}
+                aria-label="Comprar vestido"
               >
                 COMPRAR
               </button>
@@ -258,7 +294,9 @@ const Dress = () => {
               DESCRIÇÃO
             </h2>
 
-            <p className={`text-${fontSize}sm  text-justify ${secundaryTextColor} mt-5`}>
+            <p
+              className={`text-${fontSize}sm  text-justify ${secundaryTextColor} mt-5`}
+            >
               Vestido longo de festa, a epítome da elegância com o nosso
               deslumbrante modelo. Este vestido emana sensualidade onde quer que
               você vá, destacando-se com um sedutor decote tomara que caia,
@@ -269,10 +307,14 @@ const Dress = () => {
               deixar uma impressionante marca de sofisticação e beleza.
             </p>
 
-            <h3 className={`text-${fontSize}md  font-semibold ${bgColor} mt-4 ${secundaryTextColor}`}>
+            <h3
+              className={`text-${fontSize}md  font-semibold ${bgColor} mt-4 ${secundaryTextColor}`}
+            >
               Detalhes:
             </h3>
-            <ul className={`list-disc ml-7 text-${fontSize}sm lg:text-${fontSize}lg ${secundaryTextColor}`}>
+            <ul
+              className={`list-disc ml-7 text-${fontSize}sm lg:text-${fontSize}lg ${secundaryTextColor}`}
+            >
               <li>Drapeado na cintura</li>
               <li>Tomara que caia</li>
               <li>Barbatanas</li>
@@ -280,10 +322,14 @@ const Dress = () => {
               <li>Fenda</li>
             </ul>
 
-            <h3 className={`text-${fontSize}md lg:text-${fontSize}lg font-semibold ${textColor} mt-4`}>
+            <h3
+              className={`text-${fontSize}md lg:text-${fontSize}lg font-semibold ${textColor} mt-4`}
+            >
               Ideal para ocasiões:
             </h3>
-            <ul className={`list-disc ml-7 text-${fontSize}sm lg:text-${fontSize}lg ${secundaryTextColor}`}>
+            <ul
+              className={`list-disc ml-7 text-${fontSize}sm lg:text-${fontSize}lg ${secundaryTextColor}`}
+            >
               <li>Casamento no campo</li>
               <li>Casamento de dia</li>
               <li>Casamento a noite</li>
@@ -294,13 +340,24 @@ const Dress = () => {
 
             <div className="mt-5">
               <div>
-                <details className={`open:shadow-lg p-4 border ${borderColor}/40`}>
-                  <summary className={`text-${fontSize}sm lg:text-${fontSize}base leading-6 ${textColor} font-semibold select-none`}>
+                <details
+                  className={`open:shadow-lg p-4 border ${borderColor}/40`}
+                >
+                  <summary
+                    className={`text-${fontSize}sm lg:text-${fontSize}base leading-6 ${textColor} font-semibold select-none`}
+                  >
                     Especificações Técnicas
                   </summary>
-                  <div className={`mt-3 text-${fontSize}sm lg:text-${fontSize}md leading-6 space-y-2 ${textColor}`}>
+                  <div
+                    className={`mt-3 text-${fontSize}sm lg:text-${fontSize}md leading-6 space-y-2 ${textColor}`}
+                  >
                     <p>Composição: 89% Poliamida 11% Elastano</p>
-                    <p>É um tecido maleável e com bastante elasticidade, pois possui elastano em sua composição. Possui textura lisa, com um leve efeito escorregadio e fica perfeito em vestidos de festa ajustados ou fluidos.</p>
+                    <p>
+                      É um tecido maleável e com bastante elasticidade, pois
+                      possui elastano em sua composição. Possui textura lisa,
+                      com um leve efeito escorregadio e fica perfeito em
+                      vestidos de festa ajustados ou fluidos.
+                    </p>
                     <p>Forro: 100% Poliéster</p>
                     <p>Bojo: Não</p>
                     <p>Fecho: Zíper Invisível</p>
@@ -309,11 +366,17 @@ const Dress = () => {
               </div>
 
               <div>
-                <details className={`open:${bgColor} open:ring-1 open:ring-black/5 open:shadow-lg p-4 border ${borderColor}/40`}>
-                  <summary className={`text-${fontSize}sm lg:text-${fontSize}base leading-6 ${textColor} font-semibold select-none`}>
+                <details
+                  className={`open:${bgColor} open:ring-1 open:ring-black/5 open:shadow-lg p-4 border ${borderColor}/40`}
+                >
+                  <summary
+                    className={`text-${fontSize}sm lg:text-${fontSize}base leading-6 ${textColor} font-semibold select-none`}
+                  >
                     Medidas da Modelo
                   </summary>
-                  <div className={`mt-3 text-${fontSize}sm lg:text-${fontSize}md leading-6 space-y-2 ${textColor}`}>
+                  <div
+                    className={`mt-3 text-${fontSize}sm lg:text-${fontSize}md leading-6 space-y-2 ${textColor}`}
+                  >
                     <p>Modelo está vestindo tamanho 38 (P)</p>
                     <p>Altura 1.77m</p>
                     <p>Busto 82cm</p>
@@ -324,11 +387,17 @@ const Dress = () => {
               </div>
 
               <div>
-                <details className={`open:${bgColor} open:ring-1 open:ring-black/5 open:shadow-lg p-4 border ${borderColor}/40`}>
-                  <summary className={`text-${fontSize}sm lg:text-${fontSize}sm leading-6 ${textColor} font-semibold select-none`}>
+                <details
+                  className={`open:${bgColor} open:ring-1 open:ring-black/5 open:shadow-lg p-4 border ${borderColor}/40`}
+                >
+                  <summary
+                    className={`text-${fontSize}sm lg:text-${fontSize}sm leading-6 ${textColor} font-semibold select-none`}
+                  >
                     Cuidados!
                   </summary>
-                  <div className={`mt-3 text-${fontSize}sm lg:text-${fontSize}md leading-6 space-y-2 ${textColor}`}>
+                  <div
+                    className={`mt-3 text-${fontSize}sm lg:text-${fontSize}md leading-6 space-y-2 ${textColor}`}
+                  >
                     <p>Siga as instruções da etiqueta de lavagem. </p>
                     <p>
                       Seu vestido não deverá ser lavado ou seco em máquina.{" "}
@@ -347,7 +416,9 @@ const Dress = () => {
           <div className={`h-px ${secundaryBgColor}/40 mt-7`}></div>
 
           <div className="mt-6">
-            <h2 className={`text-${fontSize}lg lg:text-${fontSize}xl font-medium ${textColor}`}>
+            <h2
+              className={`text-${fontSize}lg lg:text-${fontSize}xl font-medium ${textColor}`}
+            >
               Frete
             </h2>
             <div className="flex items-center justify-center gap-2 mt-4 lg:gap-11">
@@ -361,6 +432,7 @@ const Dress = () => {
               <button
                 className={`text-${fontSize}sm lg:text-${fontSize}base ${tertiaryTextColor} ${secundaryBgColor} font-medium h-12 w-[226px] rounded-md hover:bg-btn-hover`}
                 onClick={handleFreteSubmit}
+                aria-label="Calcular o frete para entrega"
               >
                 CALCULAR
               </button>

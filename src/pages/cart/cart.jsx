@@ -77,6 +77,7 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
                   newCartItems[itemIndex].qtd = newCartItems[itemIndex].qtd - 1;
                   setCartItems(newCartItems);
                 }}
+                aria-label="Subtrair uma unidade do item no carrinho"
               >
                 <Minus />
               </IconButton>
@@ -93,6 +94,7 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
                   newCartItems[itemIndex].qtd = newCartItems[itemIndex].qtd + 1;
                   setCartItems(newCartItems);
                 }}
+                aria-label="Adicionar uma unidade do item no carrinho"
               >
                 <Plus />
               </IconButton>
@@ -102,6 +104,7 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
               className="md:hidden inline h-10  grow"
               color={iconColor}
               onClick={remove}
+              aria-label="Remover o item do carrinho"
             >
               Remover
             </Button>
@@ -113,6 +116,7 @@ const CartCard = ({ itemIndex, cartItems, setCartItems }) => {
         className="hidden md:inline"
         color={iconColor}
         onClick={remove}
+        aria-label="Remover o item do carrinho"
       >
         Remover
       </Button>
@@ -236,6 +240,7 @@ const CartResume = ({ cartItems }) => {
       <Button
         fullWidth
         className={`${tertiaryTextColor} ${secundaryBgColor} font-montserrat py-5 normal-case text-${fontSize}lg`}
+        aria-label="Finalizar compra"
       >
         Finalizar compra
       </Button>
@@ -243,6 +248,7 @@ const CartResume = ({ cartItems }) => {
         variant="text"
         className={`border ${borderColor} ${textColor} font-montserrat py-4 normal-case font-normal mt-2`}
         fullWidth
+        aria-label="Continuar comprando"
       >
         Continuar comprando
       </Button>

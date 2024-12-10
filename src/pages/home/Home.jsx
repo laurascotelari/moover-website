@@ -36,6 +36,7 @@ const HomeCarousel = ({ imgArray }) => (
         size="lg"
         onClick={handlePrev}
         className={`text-primary-lighter !absolute top-2/4 left-4 -translate-y-2/4`}
+        aria-label="Mostrar a imagem anterior do banner da homepage"
       >
         <CaretLeft size={32} />
       </IconButton>
@@ -47,6 +48,7 @@ const HomeCarousel = ({ imgArray }) => (
         size="lg"
         onClick={handleNext}
         className="text-primary-darker !absolute top-2/4 !right-4 -translate-y-2/4"
+        aria-label="Mostrar a imagem seguinte do banner da homepage"
       >
         <CaretRight size={32} />
       </IconButton>
