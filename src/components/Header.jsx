@@ -9,6 +9,8 @@ import {
 import { useNavigate, Link } from "react-router-dom";
 import { useTheme } from "../contexts/ThemeContext";
 import { useFontSize } from "../contexts/FontSizeContext";
+import logoClaro from "../assets/img_logo_mais_claro.png";
+import logoEscuro from "../assets/img_logo_preto.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,11 +49,7 @@ const Header = () => {
 
         <Link to="/" className="">
           <img
-            src={
-              theme == "theme1"
-                ? "src/assets/img_logo_mais_claro.png"
-                : "src/assets/img_logo_preto.png"
-            }
+            src={theme == "theme1" ? logoClaro : logoEscuro}
             alt="Moover Logo"
             className="h-10 mx-auto"
           />

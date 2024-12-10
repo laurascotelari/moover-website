@@ -8,6 +8,7 @@ import {
 import Carrossel from "../components/Carousel";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 import image1 from "../assets/dresses/img_vestido1.png";
 import image2 from "../assets/dresses/img_vestido2.png";
 import image3 from "../assets/dresses/img_vestido3.png";
@@ -18,6 +19,8 @@ const Dress = () => {
   //classes referentes ao tema padrao e o tema de alto contraste
   const { toggleTheme, theme } = useTheme();
   const { toggleFontSize, fontSize } = useFontSize();
+
+  let navigate = useNavigate();
 
   //tema padrao
   let textColor = "text-primary-darker";
@@ -71,7 +74,7 @@ const Dress = () => {
     }
 
     if (isValid) {
-      e.target.submit();
+      navigate("/cart");
     }
   }
 
